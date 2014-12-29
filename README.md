@@ -26,44 +26,45 @@ by two newlines (`\n\n`).
 
 ## Supported data types ##
 
- |          Name         |                                                                Example                                                                |
- |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------|
- | Name                  | Arabella Hahn-Matthäi                                                                                                                 |
- | First Name            | Jeffrey                                                                                                                               |
- | Last Name             | Renner                                                                                                                                |
- | Email                 | augustina.braun@ratke-hamill.org                                                                                                      |
- | Email (corporate)     | fridolin68@schueler.de                                                                                                                |
- | Email (free)          | gkautzer@gmail.com                                                                                                                    |
- | Email (safe)          | cruickshank.hymen@example.com                                                                                                         |
- | Email domain (free)   | hotmail.com                                                                                                                           |
- | Address               | Ronda de Claudia Alegre 9 Melilla, 57359                                                                                           |
- | Street                | Paseo Lila Roca 52                                                                                                                    |
- | Street Name           | Cuesta Mauricio Sotelo                                                                                                                |
- | City                  | León                                                                                                                                  |
- | State                 | Vizcaya                                                                                                                               |
- | State abbr.           | WA                                                                                                                                    |
- | Country               | Albanien                                                                                                                              |
- | TLD                   | de                                                                                                                                    |
- | Domain Name           | ankunding.org                                                                                                                         |
- | Domain Word           | tormo-vazquez                                                                                                                         |
- | IP Address (IPv4)     | 23.1.170.203                                                                                                                          |
- | IP Address (IPv6)     | 9144:9c8a:e1b3:db99:df20:be35:8fd0:1ab2                                                                                               |
- | URI                   | http://cummerata-kuvalis.com/app/category/register.php                                                                                |
- | URI path              | tags                                                                                                                                  |
- | URL                   | http://pollich-rath.com/                                                                                                              |
- | Corporate BS          | revolutionize virtual e-markets                                                                                                       |
- | Corporate catchphrase | Optional executive leverage                                                                                                           |
- | Company               | Löwer AG                                                                                                                              |
- | Company suffix        | LLC                                                                                                                                   |
- | Paragraph             | Error culpa amet voluptatem et delectus labore. Facilis deserunt quae aliquid mollitia. Aut esse qui totam dolor consequatur dolorem. |
- | Sentence              | Provident vel quod dolorem in.                                                                                                        |
- | Word                  | sint                                                                                                                                  |
- | Date                  | 1985-05-14                                                                                                                            |
- | Datetime              | 1981-01-28 14:37:06                                                                                                                   |
- | ISO 8601 Datetime     | 1990-07-30T08:41:53                                                                                                                   |
- | Time                  | 00:42:12                                                                                                                              |
- | Timezone              | Europe/Istanbul                                                                                                                       |
- | UNIX timestamp        | 261754578                                                                                                                             |
+ |          Name         |                                                                                 Example                                                                                  |
+ |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+ | Name                  | Dean Bartoletti                                                                                                                                                          |
+ | First Name            | Aubrey                                                                                                                                                                   |
+ | Last Name             | Pinilla                                                                                                                                                                  |
+ | Email                 | trapp.teona@jopich.de                                                                                                                                                    |
+ | Email (corporate)     | eden83@oberbrunner.biz                                                                                                                                                   |
+ | Email (free)          | faylinn24@yahoo.de                                                                                                                                                       |
+ | Email (safe)          | paffrath.michel@example.net                                                                                                                                              |
+ | Email domain (free)   | hotmail.com                                                                                                                                                              |
+ | Address               | PSC 5021, Box 4004 APO AP 93413-5259                                                                                                                                     |
+ | Street                | Incrocio Martinelli 3                                                                                                                                                    |
+ | Street Name           | Callejón Eric Galván                                                                                                                                                     |
+ | City                  | Rothenburg oberauber                                                                                                                                                     |
+ | State                 | Asturias                                                                                                                                                                 |
+ | State abbr.           | PA                                                                                                                                                                       |
+ | Country               | Gibraltar                                                                                                                                                                |
+ | TLD                   | com                                                                                                                                                                      |
+ | Domain Name           | adams-baumbach.com                                                                                                                                                       |
+ | Domain Word           | albers                                                                                                                                                                   |
+ | IP Address (IPv4)     | 251.230.26.56                                                                                                                                                            |
+ | IP Address (IPv6)     | 6b64:501e:659d:8ebb:e4a4:c922:93dc:7fd3                                                                                                                                  |
+ | URI                   | http://www.vara-escribano.net/faq.jsp                                                                                                                                    |
+ | URI path              | categories/list/tags                                                                                                                                                     |
+ | URL                   | http://effertz.info/                                                                                                                                                     |
+ | Corporate BS          | revolutionize bleeding-edge partnerships                                                                                                                                 |
+ | Corporate catchphrase | Synchronised hybrid adapter                                                                                                                                              |
+ | Company               | Barone-Piras SPA                                                                                                                                                         |
+ | Company suffix        | and Sons                                                                                                                                                                 |
+ | Paragraph             | Et perferendis nemo quia reiciendis error quo officia. Eaque sit quidem facere quae perferendis autem. Fugiat aut aut eius omnis. Est rerum ea ut nihil est quisquam et. |
+ | Sentence              | At illum eum rerum qui.                                                                                                                                                  |
+ | Word                  | dolorum                                                                                                                                                                  |
+ | Date                  | 2002-01-12                                                                                                                                                               |
+ | Datetime              | 1971-08-12 21:03:27                                                                                                                                                      |
+ | ISO 8601 Datetime     | 1992-07-31T06:39:02                                                                                                                                                      |
+ | Time                  | 06:28:44                                                                                                                                                                 |
+ | Timezone              | Pacific/Efate                                                                                                                                                            |
+ | UNIX timestamp        | 886420512                                                                                                                                                                |
+
 
 
 ## Supported locales ##

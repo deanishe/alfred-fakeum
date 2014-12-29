@@ -115,4 +115,4 @@ Alfred Fakum uses the following libraries:
 [faker]: http://www.joke2k.net/faker/
 [faker-licence]: https://github.com/joke2k/faker/blob/master/LICENSE.txt
 [sil]: http://scripts.sil.org/OFL
-[demo]: demo.gif
+[demo]: https://raw.githubusercontent.com/deanishe/alfred-fakeum/master/demo.gif

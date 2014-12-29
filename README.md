@@ -26,44 +26,44 @@ by two newlines (`\n\n`).
 
 ## Supported data types ##
 
- | Name | Example |
- |-- |--|
-| Name | Arabella Hahn-Matthäi |
-| First Name | Jeffrey |
-| Last Name | Renner |
-| Email | augustina.braun@ratke-hamill.org |
-| Email (corporate) | fridolin68@schueler.de |
-| Email (free) | gkautzer@gmail.com |
-| Email (safe) | cruickshank.hymen@example.com |
-| Email domain (free) | hotmail.com |
-| Address | Ronda de Claudia Alegre 9<br>Melilla, 57359 |
-| Street | Paseo Lila Roca 52 |
-| Street Name | Cuesta Mauricio Sotelo |
-| City | León |
-| State | Vizcaya |
-| State abbr. | WA |
-| Country | Albanien |
-| TLD | de |
-| Domain Name | ankunding.org |
-| Domain Word | tormo-vazquez |
-| IP Address (IPv4) | 23.1.170.203 |
-| IP Address (IPv6) | 9144:9c8a:e1b3:db99:df20:be35:8fd0:1ab2 |
-| URI | http://cummerata-kuvalis.com/app/category/register.php |
-| URI path | tags |
-| URL | http://pollich-rath.com/ |
-| Corporate BS | revolutionize virtual e-markets |
-| Corporate catchphrase | Optional executive leverage |
-| Company | Löwer AG |
-| Company suffix | LLC |
-| Paragraph | Error culpa amet voluptatem et delectus labore. Facilis deserunt quae aliquid mollitia. Aut esse qui totam dolor consequatur dolorem. |
-| Sentence | Provident vel quod dolorem in. |
-| Word | sint |
-| Date | 1985-05-14 |
-| Datetime | 1981-01-28 14:37:06 |
-| ISO 8601 Datetime | 1990-07-30T08:41:53 |
-| Time | 00:42:12 |
-| Timezone | Europe/Istanbul |
-| UNIX timestamp | 261754578 |
+ |          Name         |                                                                Example                                                                |
+ |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+ | Name                  | Arabella Hahn-Matthäi                                                                                                                 |
+ | First Name            | Jeffrey                                                                                                                               |
+ | Last Name             | Renner                                                                                                                                |
+ | Email                 | augustina.braun@ratke-hamill.org                                                                                                      |
+ | Email (corporate)     | fridolin68@schueler.de                                                                                                                |
+ | Email (free)          | gkautzer@gmail.com                                                                                                                    |
+ | Email (safe)          | cruickshank.hymen@example.com                                                                                                         |
+ | Email domain (free)   | hotmail.com                                                                                                                           |
+ | Address               | Ronda de Claudia Alegre 9<br>Melilla, 57359                                                                                           |
+ | Street                | Paseo Lila Roca 52                                                                                                                    |
+ | Street Name           | Cuesta Mauricio Sotelo                                                                                                                |
+ | City                  | León                                                                                                                                  |
+ | State                 | Vizcaya                                                                                                                               |
+ | State abbr.           | WA                                                                                                                                    |
+ | Country               | Albanien                                                                                                                              |
+ | TLD                   | de                                                                                                                                    |
+ | Domain Name           | ankunding.org                                                                                                                         |
+ | Domain Word           | tormo-vazquez                                                                                                                         |
+ | IP Address (IPv4)     | 23.1.170.203                                                                                                                          |
+ | IP Address (IPv6)     | 9144:9c8a:e1b3:db99:df20:be35:8fd0:1ab2                                                                                               |
+ | URI                   | http://cummerata-kuvalis.com/app/category/register.php                                                                                |
+ | URI path              | tags                                                                                                                                  |
+ | URL                   | http://pollich-rath.com/                                                                                                              |
+ | Corporate BS          | revolutionize virtual e-markets                                                                                                       |
+ | Corporate catchphrase | Optional executive leverage                                                                                                           |
+ | Company               | Löwer AG                                                                                                                              |
+ | Company suffix        | LLC                                                                                                                                   |
+ | Paragraph             | Error culpa amet voluptatem et delectus labore. Facilis deserunt quae aliquid mollitia. Aut esse qui totam dolor consequatur dolorem. |
+ | Sentence              | Provident vel quod dolorem in.                                                                                                        |
+ | Word                  | sint                                                                                                                                  |
+ | Date                  | 1985-05-14                                                                                                                            |
+ | Datetime              | 1981-01-28 14:37:06                                                                                                                   |
+ | ISO 8601 Datetime     | 1990-07-30T08:41:53                                                                                                                   |
+ | Time                  | 00:42:12                                                                                                                              |
+ | Timezone              | Europe/Istanbul                                                                                                                       |
+ | UNIX timestamp        | 261754578                                                                                                                             |
 
 
 ## Supported locales ##

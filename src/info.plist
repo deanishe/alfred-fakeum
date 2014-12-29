@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>net.deanishe.alfred-fakum</string>
+	<string>net.deanishe.alfred-fakeum</string>
 	<key>connections</key>
 	<dict>
 		<key>305FB681-8DA9-4F6C-9C38-1B3880FDD6BF</key>
@@ -63,7 +63,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Fakum</string>
+	<string>Fakeum</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -116,7 +116,7 @@
 				<key>runningsubtext</key>
 				<string>Faking up some stuff…</string>
 				<key>script</key>
-				<string>/usr/bin/python fakum.py "{query}"</string>
+				<string>/usr/bin/python fakeum.py "{query}"</string>
 				<key>subtext</key>
 				<string>Fake data for testing</string>
 				<key>title</key>

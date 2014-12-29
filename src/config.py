@@ -26,7 +26,7 @@ import subprocess
 import sys
 
 from workflow import Workflow
-from fakum import ALL_LOCALES, DEFAULT_SETTINGS, UPDATE_SETTINGS, HELP_URL
+from fakeum import ALL_LOCALES, DEFAULT_SETTINGS, UPDATE_SETTINGS, HELP_URL
 
 ALFRED_AS = 'tell application "Alfred 2" to search "fakeconfig "'
 
@@ -58,6 +58,12 @@ def main(wf):
 
         subprocess.call(['osascript', '-e', ALFRED_AS])
         return 0
+
+    if wf.update_available:
+        wf.add_item('A newer version is available',
+                    '↩ to install update',
+                    autocomplete='workflow:update',
+                    icon='update-available.png')
 
     query = args.get('<query>')
 

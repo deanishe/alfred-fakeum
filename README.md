@@ -89,7 +89,6 @@ by two newlines (`\n\n`).
 - Lithuanian
 - Latvian
 - Dutch
-- Norwegian
 - Polish
 - Portuguese (BR)
 - Russian

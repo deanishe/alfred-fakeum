@@ -24,8 +24,8 @@ from faker import Factory
 
 DELIMITER = '⟩'
 
-HELP_URL = 'https://github.com/deanishe/alfred-fakum'
-UPDATE_SETTINGS = {'github_slug': 'deanishe/alfred-fakum'}
+HELP_URL = 'https://github.com/deanishe/alfred-fakeum'
+UPDATE_SETTINGS = {'github_slug': 'deanishe/alfred-fakeum'}
 
 # All locales supported by faker
 ALL_LOCALES = {
@@ -48,7 +48,7 @@ ALL_LOCALES = {
     'lt_LT': 'Lithuanian',
     'lv_LV': 'Latvian',
     'nl_NL': 'Dutch',
-    'no_NO': 'Norwegian',
+    # 'no_NO': 'Norwegian',  # Doesn't seem to be working :(
     'pl_PL': 'Polish',
     'pt_BR': 'Portuguese (BR)',
     'ru_RU': 'Russian',
@@ -56,7 +56,6 @@ ALL_LOCALES = {
     'zh_CN': 'Chinese (CN)',
     'zh_TW': 'Chinese (TW)',
 }
-
 
 DEFAULT_SETTINGS = {
     'locales': [
@@ -128,7 +127,7 @@ def get_faker():
     """Return random faker instance"""
     global fakers
     if not fakers:
-        for loc in wf.settings.get('locales', ALL_LOCALES):
+        for loc in wf.settings.get('locales', DEFAULT_SETTINGS['locales']):
             fakers.append(Factory.create(loc))
 
     return random.choice(fakers)
@@ -191,7 +190,7 @@ def get_fake_data(names=None, count=1):
 def main(wf):
 
     if wf.update_available:
-        wf.add_item('An newer version is available',
+        wf.add_item('A newer version is available',
                     '↩ to install update',
                     autocomplete='workflow:update',
                     icon='update-available.png')

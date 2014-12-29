@@ -26,43 +26,45 @@ by two newlines (`\n\n`).
 
 ## Supported data types ##
 
-|          Name         |                 Example                  |
-|-----------------------|------------------------------------------|
-| Name                  | Dean Bartoletti                          |
-| First Name            | Aubrey                                   |
-| Last Name             | Pinilla                                  |
-| Email                 | trapp.teona@jopich.de                    |
-| Email (corporate)     | eden83@oberbrunner.biz                   |
-| Email (free)          | faylinn24@yahoo.de                       |
-| Email (safe)          | paffrath.michel@example.net              |
-| Email domain (free)   | hotmail.com                              |
-| Address               | PSC 5021, Box 4004 APO AP 93413-5259     |
-| Street                | Incrocio Martinelli 3                    |
-| Street Name           | Callejón Eric Galván                     |
-| City                  | Rothenburg oberauber                     |
-| State                 | Asturias                                 |
-| State abbr.           | PA                                       |
-| Country               | Gibraltar                                |
-| TLD                   | com                                      |
-| Domain Name           | adams-baumbach.com                       |
-| Domain Word           | albers                                   |
-| IP Address (IPv4)     | 251.230.26.56                            |
-| IP Address (IPv6)     | 6b64:501e:659d:8ebb:e4a4:c922:93dc:7fd3  |
-| URI                   | http://www.vara-escribano.net/faq.jsp    |
-| URI path              | categories/list/tags                     |
-| URL                   | http://effertz.info/                     |
-| Corporate BS          | revolutionize bleeding-edge partnerships |
-| Corporate catchphrase | Synchronised hybrid adapter              |
-| Company               | Barone-Piras SPA                         |
-| Company suffix        | and Sons                                 |
-| Sentence              | At illum eum rerum qui.                  |
-| Word                  | dolorum                                  |
-| Date                  | 2002-01-12                               |
-| Datetime              | 1971-08-12 21:03:27                      |
-| ISO 8601 Datetime     | 1992-07-31T06:39:02                      |
-| Time                  | 06:28:44                                 |
-| Timezone              | Pacific/Efate                            |
-| UNIX timestamp        | 886420512                                |
+|          Name         |                                                                                           Example                                                                                            |
+|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                  | Dr. Venie Mayer DVM                                                                                                                                                                          |
+| First Name            | Mercedes                                                                                                                                                                                     |
+| Last Name             | Greco                                                                                                                                                                                        |
+| Email                 | jan.hettinger@yahoo.com                                                                                                                                                                      |
+| Email (corporate)     | kaul.kurt@mitschke.org                                                                                                                                                                       |
+| Email (free)          | xpardo@hotmail.com                                                                                                                                                                           |
+| Email (safe)          | fabio.pellegrino@example.org                                                                                                                                                                 |
+| Email domain (free)   | yahoo.de                                                                                                                                                                                     |
+| Address               | C. de Aya Fernandez 34<br/>Palencia, 60850                                                                                                                                                   |
+| Street                | Vicolo Rudy 4                                                                                                                                                                                |
+| Street Name           | Pasadizo Miranda Rivero                                                                                                                                                                      |
+| City                  | Witzenhausen                                                                                                                                                                                 |
+| State                 | Almería                                                                                                                                                                                      |
+| State abbr.           | TN                                                                                                                                                                                           |
+| Country               | Bangladesh                                                                                                                                                                                   |
+| TLD                   | net                                                                                                                                                                                          |
+| Domain Name           | feeney.net                                                                                                                                                                                   |
+| Domain Word           | milani                                                                                                                                                                                       |
+| IP Address (IPv4)     | 177.119.72.157                                                                                                                                                                               |
+| IP Address (IPv6)     | 4f17:280f:7cdb:0834:dac1:3841:9520:a42f                                                                                                                                                      |
+| URI                   | http://greco-piras.org/search.htm                                                                                                                                                            |
+| URI path              | app/posts/main                                                                                                                                                                               |
+| URL                   | http://www.soeding.de/                                                                                                                                                                       |
+| Corporate BS          | orchestrate magnetic eyeballs                                                                                                                                                                |
+| Corporate catchphrase | Versatile global productivity                                                                                                                                                                |
+| Company               | De luca, Russo e Piras s.r.l.                                                                                                                                                                |
+| Company suffix        | LLC                                                                                                                                                                                          |
+| Paragraph             | Vitae atque sed soluta vero culpa ut. Vero occaecati quaerat voluptas quidem at et fugit voluptas. Quam est labore vitae consequatur. Facilis deleniti quisquam accusantium quas est magnam. |
+| Sentence              | Tempore distinctio quia est nam neque.                                                                                                                                                       |
+| Word                  | quia                                                                                                                                                                                         |
+| Date                  | 2009-09-11                                                                                                                                                                                   |
+| Datetime              | 2014-11-07 10:26:03                                                                                                                                                                          |
+| ISO 8601 Datetime     | 1983-08-30T00:44:16                                                                                                                                                                          |
+| Time                  | 23:17:05                                                                                                                                                                                     |
+| Timezone              | Africa/Porto-Novo                                                                                                                                                                            |
+| UNIX timestamp        | 1171262842                                                                                                                                                                                   |
+
 
 
 

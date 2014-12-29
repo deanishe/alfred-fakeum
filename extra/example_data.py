@@ -27,8 +27,8 @@ import fakum
 def main():
     wf = Workflow()
     fakum.wf = wf
-    print(' | Name | Example |')
-    print(' |-- |--|')
+    print('| Name | Example |')
+    print('|-- |--|')
     for name in fakum.FAKERS:
         ex = fakum.get_fake_datum(name)
         print('| {} | {} |'.format(name, ex).encode('utf-8'))

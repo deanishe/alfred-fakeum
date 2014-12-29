@@ -1,4 +1,4 @@
-# Alfred Fakum #
+# Alfred Fakeum #
 
 Generate fake test data in Alfred for testing.
 

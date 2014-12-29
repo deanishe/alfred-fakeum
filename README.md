@@ -36,7 +36,7 @@ by two newlines (`\n\n`).
  | Email (free)          | gkautzer@gmail.com                                                                                                                    |
  | Email (safe)          | cruickshank.hymen@example.com                                                                                                         |
  | Email domain (free)   | hotmail.com                                                                                                                           |
- | Address               | Ronda de Claudia Alegre 9<br>Melilla, 57359                                                                                           |
+ | Address               | Ronda de Claudia Alegre 9 Melilla, 57359                                                                                           |
  | Street                | Paseo Lila Roca 52                                                                                                                    |
  | Street Name           | Cuesta Mauricio Sotelo                                                                                                                |
  | City                  | León                                                                                                                                  |

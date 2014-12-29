@@ -26,43 +26,43 @@ by two newlines (`\n\n`).
 
 ## Supported data types ##
 
- |          Name         |                 Example                  |
- |-----------------------|------------------------------------------|
- | Name                  | Dean Bartoletti                          |
- | First Name            | Aubrey                                   |
- | Last Name             | Pinilla                                  |
- | Email                 | trapp.teona@jopich.de                    |
- | Email (corporate)     | eden83@oberbrunner.biz                   |
- | Email (free)          | faylinn24@yahoo.de                       |
- | Email (safe)          | paffrath.michel@example.net              |
- | Email domain (free)   | hotmail.com                              |
- | Address               | PSC 5021, Box 4004 APO AP 93413-5259     |
- | Street                | Incrocio Martinelli 3                    |
- | Street Name           | Callejón Eric Galván                     |
- | City                  | Rothenburg oberauber                     |
- | State                 | Asturias                                 |
- | State abbr.           | PA                                       |
- | Country               | Gibraltar                                |
- | TLD                   | com                                      |
- | Domain Name           | adams-baumbach.com                       |
- | Domain Word           | albers                                   |
- | IP Address (IPv4)     | 251.230.26.56                            |
- | IP Address (IPv6)     | 6b64:501e:659d:8ebb:e4a4:c922:93dc:7fd3  |
- | URI                   | http://www.vara-escribano.net/faq.jsp    |
- | URI path              | categories/list/tags                     |
- | URL                   | http://effertz.info/                     |
- | Corporate BS          | revolutionize bleeding-edge partnerships |
- | Corporate catchphrase | Synchronised hybrid adapter              |
- | Company               | Barone-Piras SPA                         |
- | Company suffix        | and Sons                                 |
- | Sentence              | At illum eum rerum qui.                  |
- | Word                  | dolorum                                  |
- | Date                  | 2002-01-12                               |
- | Datetime              | 1971-08-12 21:03:27                      |
- | ISO 8601 Datetime     | 1992-07-31T06:39:02                      |
- | Time                  | 06:28:44                                 |
- | Timezone              | Pacific/Efate                            |
- | UNIX timestamp        | 886420512                                |
+|          Name         |                 Example                  |
+|-----------------------|------------------------------------------|
+| Name                  | Dean Bartoletti                          |
+| First Name            | Aubrey                                   |
+| Last Name             | Pinilla                                  |
+| Email                 | trapp.teona@jopich.de                    |
+| Email (corporate)     | eden83@oberbrunner.biz                   |
+| Email (free)          | faylinn24@yahoo.de                       |
+| Email (safe)          | paffrath.michel@example.net              |
+| Email domain (free)   | hotmail.com                              |
+| Address               | PSC 5021, Box 4004 APO AP 93413-5259     |
+| Street                | Incrocio Martinelli 3                    |
+| Street Name           | Callejón Eric Galván                     |
+| City                  | Rothenburg oberauber                     |
+| State                 | Asturias                                 |
+| State abbr.           | PA                                       |
+| Country               | Gibraltar                                |
+| TLD                   | com                                      |
+| Domain Name           | adams-baumbach.com                       |
+| Domain Word           | albers                                   |
+| IP Address (IPv4)     | 251.230.26.56                            |
+| IP Address (IPv6)     | 6b64:501e:659d:8ebb:e4a4:c922:93dc:7fd3  |
+| URI                   | http://www.vara-escribano.net/faq.jsp    |
+| URI path              | categories/list/tags                     |
+| URL                   | http://effertz.info/                     |
+| Corporate BS          | revolutionize bleeding-edge partnerships |
+| Corporate catchphrase | Synchronised hybrid adapter              |
+| Company               | Barone-Piras SPA                         |
+| Company suffix        | and Sons                                 |
+| Sentence              | At illum eum rerum qui.                  |
+| Word                  | dolorum                                  |
+| Date                  | 2002-01-12                               |
+| Datetime              | 1971-08-12 21:03:27                      |
+| ISO 8601 Datetime     | 1992-07-31T06:39:02                      |
+| Time                  | 06:28:44                                 |
+| Timezone              | Pacific/Efate                            |
+| UNIX timestamp        | 886420512                                |
 
 
 

@@ -22,7 +22,7 @@ import sys
 from workflow import Workflow, ICON_WARNING, MATCH_ALL, MATCH_ALLCHARS
 from faker import Factory
 
-DELIMITER = '⟩'
+DELIMITER = '×'
 
 HELP_URL = 'https://github.com/deanishe/alfred-fakeum'
 UPDATE_SETTINGS = {'github_slug': 'deanishe/alfred-fakeum'}

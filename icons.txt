@@ -1,0 +1,24 @@
+# Icons from webfonts via http://icons.deanishe.net
+#
+# Script bin/icons reads this file and downloads the
+# specified icons to src/icons
+#
+# Colours
+# purple: 843CBD
+# yellow: F8AC30
+# red:    B00000
+# green:  03AE03
+#
+
+# filename        font name     colour    icon name
+
+# Workflow icons
+icon              fontawesome   843CBD    random
+locales           material      843CBD    settings
+on                fontawesome   03AE03    dot-circle-o
+off               fontawesome   B00000    circle-o
+update-available  material      F8AC30    cloud-download
+update-check      material      03AE03    cloud-download
+docs              material      03AE03    help-outline
+issue             fontawesome   B00000    bug
+help              material      843CBD    help-outline

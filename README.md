@@ -1,28 +1,42 @@
-# Alfred Fakeum #
+Alfred Fakeum
+=============
 
 Generate fake test data in Alfred for testing.
 
 ![][demo]
 
-## Download ##
 
-Get the workflow from [GitHub][gh-releases] or [Packal][packal].
+Download & installation
+-----------------------
 
-## Usage ##
+Download the workflow from [GitHub][gh-releases], then double-click to install.
+
+**Note**: Files with the extension `alfred3workflow` are not compatible with Alfred 2.
+
+
+Usage
+-----
 
 - `fake [<query>]` — List/filter available fake data types
     - `↩`, `⌘+C` or `⌘+NUM` — Copy one fake datum to clipboard
     - `⌘+↩` — Paste fake datum into frontmost app
     - `⇥` — Specify number of datasets to copy to clipboard
     - `⌘+L` — Show generated data in Alfred's Large Text window
-- `fakeconfig [<query>]` — Activate and deactivate locales for fake data
-    - `↩` — Toggle selected locale on or off
+- `fakeconfig [<query>]` — Edit workflow settings
+    - `An update is available` / `Check for update` — Check for and/or install an updated version of the workflow
+    - `Notifications` — Turn notifications on/off
+        - `↩` — Toggle on/off
+    - `Locales` — Turn locales for fake data on/off
+        - `↩` — Show & edit active locales
+            - `[<query>]` — Filter locales
+            - `↩` — Toggle locale on/off
+    - `Documentation` — Open GitHub README in your browser
+    - `Report Problem` — Open the issue tracker in your brower
+    - `Get Help` — Open the workflow's thread on AlfredForum.com in your browser
 
-If you specify multiple data, e.g. `fake Name ⟩ 10` for 10 names, the data
-will be separated by newlines (`\n`).
+If you specify multiple data, e.g. `fake Name ✕ 10` for 10 names, the data will be separated by newlines (`\n`).
 
-In the case of `Paragraph` and `Address` types, the data will be separated
-by two newlines (`\n\n`).
+In the case of `Paragraph` and `Address` types, the data will be separated by two newlines (`\n\n`).
 
 ## Supported data types ##
 
@@ -68,51 +82,84 @@ by two newlines (`\n\n`).
 
 
 
-## Supported locales ##
+Supported locales
+-----------------
 
 **Note**: Not all locales support all data types.
 
-- Bulgarian
-- Czech
+- English
 - German
-- Danish
-- Greek
-- English (CA)
-- English (GB)
-- English (US)
-- Spanish (ES)
-- Spanish (MX)
-- Persian
-- Finnish
+- Spanish
 - French
-- Hindi
-- Italian
-- Korean
-- Lithuanian
-- Latvian
+- Arabic
+- Arabic (Egypt)
+- Arabic (Jordan)
+- Arabic (Palestine)
+- Arabic (Saudi Arabia)
+- Bosnian
+- Bulgarian
+- Chinese (China)
+- Chinese (Taiwan)
+- Croatian
+- Czech
+- Danish
 - Dutch
+- Dutch (Belgium)
+- English (Australia)
+- English (Canada)
+- English (Great Britain)
+- English (Thailand)
+- English (United States)
+- Estonian
+- Finnish
+- French (Switzerland)
+- Georgian
+- German (Austria)
+- Ghanaian
+- Greek
+- Hebrew
+- Hindi
+- Hungarian
+- Indonesian
+- Italian
+- Japanese
+- Korean
+- Latin
+- Latvian
+- Lithuanian
+- Nepali
+- Norwegian
+- Persian
 - Polish
-- Portuguese (BR)
+- Portuguese (Brazil)
+- Portuguese (Portugal)
 - Russian
+- Slovakian
 - Slovenian
-- Chinese (CN)
-- Chinese (TW)
+- Spanish (Mexico)
+- Spanish (Spain)
+- Swedish
+- Thai
+- Turkish
+- Ukranian
 
-## Licensing, thanks ##
 
-Icons are from [Font Awesome][font-awesome] ([SIL OFL 1.1 Licence][sil]).
+Licensing, thanks
+-----------------
+
+Icons are from [Font Awesome][font-awesome] and [Material Design Iconic Font](material-icons) (both [SIL OFL 1.1 Licence][sil]).
 
 Alfred Fakum uses the following libraries:
 
-- [Faker][faker] ([licence][faker-licence])
+- [Faker][faker] ([MIT Licence][faker-licence])
 - [docopt][docopt] ([MIT Licence][mit])
 - [Alfred-Workflow][alfred-workflow] ([MIT Licence][mit])
 
-[gh-releases]: https://github.com/deanishe/alfred-fakeum/releases
-[packal]: http://www.packal.org/workflow/fakeum
+[gh-releases]: https://github.com/deanishe/alfred-fakeum/releases/latest
 [mit]: http://opensource.org/licenses/MIT
 [alfred-workflow]: http://www.deanishe.net/alfred-workflow/
 [font-awesome]: http://fortawesome.github.io/Font-Awesome/
+[material-icons]: http://zavoloklom.github.io/material-design-iconic-font/
 [docopt]: http://docopt.org/
 [faker]: http://www.joke2k.net/faker/
 [faker-licence]: https://github.com/joke2k/faker/blob/master/LICENSE.txt

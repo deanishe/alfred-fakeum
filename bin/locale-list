@@ -1,0 +1,104 @@
+#!/usr/bin/env python
+# encoding: utf-8
+#
+# Copyright (c) 2014 deanishe@deanishe.net
+#
+# MIT Licence. See http://opensource.org/licenses/MIT
+#
+# Created on 2014-12-29
+#
+
+"""Generate a list of locales supported by Faker."""
+
+from __future__ import print_function, absolute_import
+
+from pprint import pprint
+import sys
+import os
+
+sys.path.insert(0, os.path.dirname(__file__) + '/../src/libs')
+sys.path.insert(0, os.path.dirname(__file__) + '/../src')
+
+locale_names = {
+    'ar_AA': 'Arabic',
+    'ar_EG': 'Arabic (Egypt)',
+    'ar_JO': 'Arabic (Jordan)',
+    'ar_PS': 'Arabic (Palestine)',
+    'ar_SA': 'Arabic (Saudi Arabia)',
+    'bg_BG': 'Bulgarian',
+    'bs_BA': 'Bosnian',
+    'cs_CZ': 'Czech',
+    'de_AT': 'German (Austria)',
+    'de_DE': 'German',
+    'dk_DK': 'Danish',
+    'el_GR': 'Greek',
+    'en_AU': 'English (Australia)',
+    'en': 'English',
+    'en_CA': 'English (Canada)',
+    'en_GB': 'English (Great Britain)',
+    'en_TH': 'English (Thailand)',
+    'en_US': 'English (United States)',
+    'es': 'Spanish',
+    'es_ES': 'Spanish (Spain)',
+    'es_MX': 'Spanish (Mexico)',
+    'et_EE': 'Estonian',
+    'fa_IR': 'Persian',
+    'fi_FI': 'Finnish',
+    'fr_CH': 'French (Switzerland)',
+    'fr_FR': 'French',
+    'he_IL': 'Hebrew',
+    'hi_IN': 'Hindi',
+    'hr_HR': 'Croatian',
+    'hu_HU': 'Hungarian',
+    'id_ID': 'Indonesian',
+    'it_IT': 'Italian',
+    'ja_JP': 'Japanese',
+    'ka_GE': 'Georgian',
+    'ko_KR': 'Korean',
+    'la': 'Latin',
+    'lt_LT': 'Lithuanian',
+    'lv_LV': 'Latvian',
+    'ne_NP': 'Nepali',
+    'nl_BE': 'Dutch (Belgium)',
+    'nl_NL': 'Dutch',
+    'no_NO': 'Norwegian',
+    'pl_PL': 'Polish',
+    'pt_BR': 'Portuguese (Brazil)',
+    'pt_PT': 'Portuguese (Portugal)',
+    'ru_RU': 'Russian',
+    'sk_SK': 'Slovakian',
+    'sl_SI': 'Slovenian',
+    'sv_SE': 'Swedish',
+    'th_TH': 'Thai',
+    'tr_TR': 'Turkish',
+    'tw_GH': 'Ghanaian',
+    'uk_UA': 'Ukranian',
+    'zh_CN': 'Chinese (China)',
+    'zh_TW': 'Chinese (Taiwan)',
+}
+
+
+def main():
+    """Print list of supported locales."""
+    import faker
+    locales = []
+    missing = []
+    for abbr in faker.config.AVAILABLE_LOCALES:
+        if abbr not in locale_names:
+            missing.append(abbr)
+            continue
+
+        # locales[abbr] = locale_names.get(abbr, '')
+        locales.append((abbr, locale_names[abbr]))
+
+    locales.sort(key=lambda t: t[1])
+
+    pprint(locales)
+
+    missing.sort()
+    for abbr in missing:
+        print('[ERROR] locale not found:', abbr, file=sys.stderr)
+
+
+if __name__ == '__main__':
+    sys.exit(main())

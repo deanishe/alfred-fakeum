@@ -258,8 +258,7 @@
 			</dict>
 		</array>
 		<key>E4106CE4-7B7A-41AC-896D-40160A37952C</key>
-		<array>
-		</array>
+		<array/>
 		<key>F01C9E5F-D701-41D1-8FC2-71EE6DD64371</key>
 		<array>
 			<dict>
@@ -640,7 +639,7 @@ vars={allvars}
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>{var:action}</string>
+				<string>{query}</string>
 				<key>utf8</key>
 				<true/>
 			</dict>
@@ -1009,12 +1008,12 @@ vars={allvars}
 		<key>LIPSUM_SENTENCES</key>
 		<string>3</string>
 		<key>SHOW_NOTIFICATIONS</key>
-		<string>1</string>
+		<string>0</string>
 		<key>keyword</key>
 		<string>fake</string>
 	</dict>
 	<key>version</key>
-	<string>2.0</string>
+	<string>2.0.1</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>

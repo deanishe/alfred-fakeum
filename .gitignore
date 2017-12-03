@@ -1,7 +1,8 @@
 
-# Created by https://www.gitignore.io/api/vim,python,sublimetext
-
 *.dist-info
+.alfredversionchecked
+
+# Created by https://www.gitignore.io/api/vim,python,sublimetext
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

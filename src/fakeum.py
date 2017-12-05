@@ -88,15 +88,29 @@ log = None
 fakers = []
 
 
-def get_faker():
-    """Return random faker instance."""
+def all_fakers():
+    """Return all fakers."""
     from faker import Factory
     global fakers
     if not fakers:
         for loc in wf.settings.get('locales', DEFAULT_SETTINGS['locales']):
             fakers.append(Factory.create(loc))
 
-    return random.choice(fakers)
+    return fakers
+
+
+def get_faker(name=None):
+    """Return random faker instance."""
+    fakers = all_fakers()
+
+    if name is None:
+        return random.choice(fakers)
+
+    random.shuffle(fakers)
+    methname = FAKERS[name]
+    for faker in fakers:
+        if hasattr(faker, methname):
+            return faker
 
 
 # def run_workflow():
@@ -106,16 +120,15 @@ def get_faker():
 
 def get_fake_datum(name):
     """Return one fake datum for name."""
+    faker = get_faker(name)
+    if not faker:
+        return None
+
     methname = FAKERS[name]
-    # Get a faker instance that has the required method
-    while True:
-        faker = get_faker()
-        if hasattr(faker, methname):
-            if name == 'Paragraph':  # Pass no. of sentences to generator
-                datum = getattr(faker, methname)(LIPSUMS, False)
-            else:
-                datum = getattr(faker, methname)()
-            break
+    if name == 'Paragraph':  # Pass no. of sentences to generator
+        datum = getattr(faker, methname)(LIPSUMS, False)
+    else:
+        datum = getattr(faker, methname)()
 
     if isinstance(datum, int):
         datum = str(datum)
@@ -129,12 +142,25 @@ def get_fake_datum(name):
     return datum
 
 
+def supported_type(name):
+    """Return ``True`` if at least one Faker supports this type."""
+    methname = FAKERS[name]
+    for faker in all_fakers():
+        if hasattr(faker, methname):
+            return True
+
+    log.debug('data type "%s" is not supported by active locales', name)
+    return False
+
+
 def get_fake_data(names=None, count=1):
     """Return list of fake data."""
     fake_data = []
 
     if not names:
         names = sorted(FAKERS.keys())
+
+    names = [n for n in names if supported_type(n)]
 
     for name in names:
 

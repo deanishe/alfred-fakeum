@@ -104,7 +104,7 @@
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
-				<false/>
+				<true/>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
@@ -124,7 +124,7 @@
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
-				<false/>
+				<true/>
 			</dict>
 		</array>
 		<key>5BB103F1-C20A-4AEC-AB23-051F4AA6816E</key>
@@ -176,7 +176,7 @@
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
-				<false/>
+				<true/>
 			</dict>
 		</array>
 		<key>80140127-E88D-4ED2-B69F-2A6EA08F3407</key>
@@ -228,7 +228,7 @@
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
-				<false/>
+				<true/>
 			</dict>
 		</array>
 		<key>BF97123F-C623-457B-B1E9-F417109255A7</key>
@@ -1013,7 +1013,7 @@ vars={allvars}
 		<string>fake</string>
 	</dict>
 	<key>version</key>
-	<string>2.0.1</string>
+	<string>2.1</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>

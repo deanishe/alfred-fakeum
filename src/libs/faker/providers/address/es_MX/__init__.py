@@ -6,9 +6,9 @@ from ..es import Provider as AddressProvider
 
 
 class Provider(AddressProvider):
-    city_prefixes = ('Sur', 'Norte',)
-    city_adjetives = ('Nueva', 'Vieja',)
-    city_suffixies = ('de la Montaña', 'los bajos', 'los altos', )
+    city_prefixes = ('Sur', 'Norte')
+    city_adjetives = ('Nueva', 'Vieja')
+    city_suffixies = ('de la Montaña', 'los bajos', 'los altos')
     street_prefixes = (
         'Ampliación', 'Andador', 'Avenida', 'Boulevard', 'Calle', 'Callejón',
         'Calzada', 'Cerrada', 'Circuito', 'Circunvalación', 'Continuación',
@@ -35,7 +35,7 @@ class Provider(AddressProvider):
         ('SIN', 'Sinaloa'), ('SON', 'Sonora'), ('TAB', 'Tabasco'),
         ('TAMPS', 'Tamaulipas'), ('TLAX', 'Tlaxcala'),
         ('VER', 'Veracruz de Ignacio de la Llave'),
-        ('YUC', 'Yucatán'), ('ZAC', 'Zacatecas'),)
+        ('YUC', 'Yucatán'), ('ZAC', 'Zacatecas'))
 
     zip_codes = OrderedDict((
         # The ZipCodes has a begin & final range
@@ -82,7 +82,7 @@ class Provider(AddressProvider):
         '{{street_prefix}} {{last_name}}',
         '{{street_prefix}} {{country}}',
         '{{street_prefix}} {{state}}',
-        '{{street_prefix}} {{city_prefix}} {{last_name}}'
+        '{{street_prefix}} {{city_prefix}} {{last_name}}',
     )
     street_address_formats = (
         '{{street_name}} {{secondary_address}}',
@@ -91,7 +91,7 @@ class Provider(AddressProvider):
         "{{street_address}}\n{{city}}, {{state_abbr}} {{postcode}}",
     )
     secondary_address_formats = ('### ###', '### Interior ###',
-        '### Edif. ### , Depto. ###')
+                                 '### Edif. ### , Depto. ###')
 
     def city_prefix(self):
         return self.random_element(self.city_prefixes)
@@ -112,7 +112,9 @@ class Provider(AddressProvider):
         """
         :example '020 Interior 999'
         """
-        return self.numerify(self.random_element(self.secondary_address_formats))
+        return self.numerify(
+            self.random_element(
+                self.secondary_address_formats))
 
     def state(self):
         """

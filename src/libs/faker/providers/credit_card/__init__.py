@@ -7,7 +7,13 @@ from .. import BaseProvider
 
 class CreditCard(object):
 
-    def __init__(self, name, prefixes, length=16, security_code='CVC', security_code_length=3):
+    def __init__(
+            self,
+            name,
+            prefixes,
+            length=16,
+            security_code='CVC',
+            security_code_length=3):
         self.name = name
         self.prefixes = prefixes
         self.length = length
@@ -17,27 +23,34 @@ class CreditCard(object):
 
 class Provider(BaseProvider):
 
-    prefix_maestro = ['5018', '5020', '5038', '5612', '5893', '6304', '6759', '6761', '6762', '6763', '0604', '6390']
-    prefix_mastercard = ['51', '52', '53', '54', '55']
+    # Prefixes from:
+    # * https://en.wikipedia.org/wiki/Payment_card_number#Issuer_identification_number_.28IIN.29
+    # * https://www.regular-expressions.info/creditcard.html
+    # * https://creditcardjs.com/credit-card-type-detection
+    prefix_maestro = ['5018', '5020', '5038', '56##', '57##', '58##',
+                      '6304', '6759', '6761', '6762', '6763', '0604', '6390']
+    prefix_mastercard = ['51', '52', '53', '54', '55', '222%']
     prefix_visa = ['4']
     prefix_amex = ['34', '37']
-    prefix_discover = ['6011']
-    prefix_diners = ['300', '301', '302', '303', '304', '305']
-    prefix_jcb16 = ['3088', '3096', '3112', '3158', '3337', '3528']
-    prefix_jcb15 = ['2100', '1800']
-    prefix_voyager = ['8699']
+    prefix_discover = ['6011', '65']
+    prefix_diners = ['300', '301', '302', '303', '304', '305', '36', '38']
+    prefix_jcb16 = ['35']
+    prefix_jcb15 = ['2131', '1800']
 
     credit_card_types = OrderedDict((
-        ('maestro',      CreditCard('Maestro',           prefix_maestro, 12, security_code='CVV')),
-        ('mastercard',   CreditCard('Mastercard',        prefix_mastercard, 16, security_code='CVV')),
-        ('visa16',       CreditCard('VISA 16 digit',     prefix_visa)),
-        ('visa13',       CreditCard('VISA 13 digit',     prefix_visa, 13)),
-        ('amex',         CreditCard('American Express',  prefix_amex, 15, security_code='CID', security_code_length=4)),
-        ('discover',     CreditCard('Discover',          prefix_discover)),
-        ('diners',       CreditCard('Diners Club / Carte Blanche', prefix_diners, 14)),
-        ('jcb15',        CreditCard('JCB 15 digit',      prefix_jcb15, 15)),
-        ('jcb16',        CreditCard('JCB 16 digit',      prefix_jcb16)),
-        ('voyager',      CreditCard('Voyager',           prefix_voyager, 15)),
+        ('maestro', CreditCard('Maestro',
+                                    prefix_maestro, 12, security_code='CVV')),
+        ('mastercard', CreditCard('Mastercard',
+                                  prefix_mastercard, 16, security_code='CVV')),
+        ('visa16', CreditCard('VISA 16 digit', prefix_visa)),
+        ('visa13', CreditCard('VISA 13 digit', prefix_visa, 13)),
+        ('visa19', CreditCard('VISA 19 digit', prefix_visa, 19)),
+        ('amex', CreditCard('American Express', prefix_amex,
+                            15, security_code='CID', security_code_length=4)),
+        ('discover', CreditCard('Discover', prefix_discover)),
+        ('diners', CreditCard('Diners Club / Carte Blanche', prefix_diners, 14)),
+        ('jcb15', CreditCard('JCB 15 digit', prefix_jcb15, 15)),
+        ('jcb16', CreditCard('JCB 16 digit', prefix_jcb16)),
     ))
     credit_card_types['visa'] = credit_card_types['visa16']
     credit_card_types['jcb'] = credit_card_types['jcb16']
@@ -55,7 +68,7 @@ class Provider(BaseProvider):
         """ Returns a valid credit card number. """
         card = self._credit_card_type(card_type)
         prefix = self.random_element(card.prefixes)
-        number = self._generate_number(prefix, card.length)
+        number = self._generate_number(self.numerify(prefix), card.length)
         return number
 
     def credit_card_expire(self, start='now', end='+10y', date_format='%m/%y'):
@@ -70,12 +83,13 @@ class Provider(BaseProvider):
                '{number} {expire_date}\n'
                '{security}: {security_nb}\n')
 
-        tpl = tpl.format(provider = card.name,
-                         owner = self.generator.parse("{{first_name}} {{last_name}}"),
-                         number = self.credit_card_number(card),
-                         expire_date = self.credit_card_expire(),
-                         security = card.security_code,
-                         security_nb = self.credit_card_security_code(card))
+        tpl = tpl.format(provider=card.name,
+                         owner=self.generator.parse(
+                             "{{first_name}} {{last_name}}"),
+                         number=self.credit_card_number(card),
+                         expire_date=self.credit_card_expire(),
+                         security=card.security_code,
+                         security_nb=self.credit_card_security_code(card))
 
         return self.generator.parse(tpl)
 

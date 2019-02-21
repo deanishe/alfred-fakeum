@@ -30,6 +30,7 @@ from __future__ import print_function, absolute_import
 import sys
 
 from workflow import Workflow3, ICON_WARNING
+from workflow.util import run_trigger, set_config
 
 from common import (
     ALL_LOCALES,
@@ -47,9 +48,6 @@ from common import (
     ICON_UPDATE_CHECK,
     UPDATE_SETTINGS,
     boolvar,
-    notify,
-    run_trigger,
-    savevar,
 )
 
 
@@ -152,16 +150,13 @@ def toggle_locale(loc):
     is_active = loc in active
 
     if is_active:
-        msg = u'Deactivated locale {}'.format(ALL_LOCALES.get(loc))
+        log.info(u'Deactivated locale %s', ALL_LOCALES.get(loc))
         active.remove(loc)
         wf.settings['locales'] = active
     else:
-        msg = u'Activated locale {}'.format(ALL_LOCALES.get(loc))
+        log.info(u'Activated locale %s', ALL_LOCALES.get(loc))
         active.append(loc)
         wf.settings['locales'] = active
-
-    log.info(msg)
-    notify(msg)
 
     run_trigger('locales')
 
@@ -177,11 +172,8 @@ def toggle_notifications():
         what = 'off'
         value = '0'
 
-    msg = 'Turned notifications ' + what
-    savevar(name, value)
-
-    log.info(msg)
-    notify(msg)
+    set_config(name, value)
+    log.info('turned notifications ' + what)
 
     run_trigger('config')
 

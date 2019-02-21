@@ -12,36 +12,36 @@ class Provider(CompanyProvider):
         '{{company_prefix}} {{last_name}}, {{last_name}} y {{last_name}}',
         '{{last_name}}-{{last_name}} {{company_suffix}}',
         '{{last_name}}, {{last_name}} y {{last_name}}',
-        '{{last_name}} y {{last_name}} {{company_suffix}}'
+        '{{last_name}} y {{last_name}} {{company_suffix}}',
     )
 
     catch_phrase_words = (
         (
-           "habilidad", "acceso", "adaptador", "algoritmo", "alianza",
-           "analista", "aplicación", "enfoque", "arquitectura",
-           "archivo", "inteligencia artificial", "array", "actitud",
-           "medición", "gestión presupuestaria", "capacidad", "desafío",
-           "circuito", "colaboración", "complejidad", "concepto",
-           "conglomeración", "contingencia", "núcleo", "fidelidad",
-           "base de datos", "data-warehouse", "definición", "emulación",
-           "codificar", "encriptar", "extranet", "firmware",
-           "flexibilidad", "focus group", "previsión", "base de trabajo",
-           "función", "funcionalidad", "interfaz gráfica", "groupware",
-           "interfaz gráfico de usuario", "hardware", "soporte", "jerarquía",
-           "conjunto", "implementación", "infraestructura", "iniciativa",
-           "instalación", "conjunto de instrucciones", "interfaz",
-           "intranet", "base del conocimiento", "red de area local",
-           "aprovechar", "matrices", "metodologías", "middleware",
-           "migración", "modelo", "moderador", "monitorizar",
-           "arquitectura abierta", "sistema abierto", "orquestar",
-           "paradigma", "paralelismo", "política", "portal",
-           "estructura de precios", "proceso de mejora",
-           "producto", "productividad", "proyecto", "proyección",
-           "protocolo", "línea segura", "software", "solución",
-           "estandarización", "estrategia", "estructura", "éxito",
-           "superestructura", "soporte", "sinergia", "mediante",
-           "marco de tiempo", "caja de herramientas", "utilización",
-           "website", "fuerza de trabajo"),
+            "habilidad", "acceso", "adaptador", "algoritmo", "alianza",
+            "analista", "aplicación", "enfoque", "arquitectura",
+            "archivo", "inteligencia artificial", "array", "actitud",
+            "medición", "gestión presupuestaria", "capacidad", "desafío",
+            "circuito", "colaboración", "complejidad", "concepto",
+            "conglomeración", "contingencia", "núcleo", "fidelidad",
+            "base de datos", "data-warehouse", "definición", "emulación",
+            "codificar", "encriptar", "extranet", "firmware",
+            "flexibilidad", "focus group", "previsión", "base de trabajo",
+            "función", "funcionalidad", "interfaz gráfica", "groupware",
+            "interfaz gráfico de usuario", "hardware", "soporte", "jerarquía",
+            "conjunto", "implementación", "infraestructura", "iniciativa",
+            "instalación", "conjunto de instrucciones", "interfaz",
+            "intranet", "base del conocimiento", "red de area local",
+            "aprovechar", "matrices", "metodologías", "middleware",
+            "migración", "modelo", "moderador", "monitorizar",
+            "arquitectura abierta", "sistema abierto", "orquestar",
+            "paradigma", "paralelismo", "política", "portal",
+            "estructura de precios", "proceso de mejora",
+            "producto", "productividad", "proyecto", "proyección",
+            "protocolo", "línea segura", "software", "solución",
+            "estandarización", "estrategia", "estructura", "éxito",
+            "superestructura", "soporte", "sinergia", "mediante",
+            "marco de tiempo", "caja de herramientas", "utilización",
+            "website", "fuerza de trabajo"),
         (
             "24 horas", "24/7", "3ra generación", "4ta generación",
             "5ta generación", "6ta generación", "analizada",
@@ -65,7 +65,7 @@ class Provider(CompanyProvider):
             "escalable", "secundaria", "orientada a soluciones",
             "estable", "estática", "sistemática", "sistémica",
             "tangible", "terciaria", "transicional", "uniforme",
-            "valor añadido", "vía web", "defectos cero", "tolerancia cero"
+            "valor añadido", "vía web", "defectos cero", "tolerancia cero",
         ),
         (
             'adaptativo', 'avanzado', 'asimilado', 'automatizado',
@@ -91,7 +91,7 @@ class Provider(CompanyProvider):
             'sincronizado', 'orientado a equipos', 'total',
             'universal', 'actualizable', 'centrado en el usuario',
             'versátil', 'virtual', 'visionario',
-        )
+        ),
     )
 
     bsWords = (
@@ -100,7 +100,7 @@ class Provider(CompanyProvider):
             'evoluciona', 'transforma', 'abraza', 'habilita',
             'orquesta', 'reinventa', 'agrega', 'mejora', 'incentiva',
             'modifica', 'empodera', 'monetiza', 'fortalece',
-            'facilita', 'sinergiza',  'crea marca', 'crece',
+            'facilita', 'sinergiza', 'crea marca', 'crece',
             'sintetiza', 'entrega', 'mezcla', 'incuba', 'compromete',
             'maximiza', 'visualiza', 'innova',
             'escala', 'libera', 'maneja', 'extiende', 'revoluciona',
@@ -117,7 +117,7 @@ class Provider(CompanyProvider):
             'sistemas', 'ancho de banda', 'modelos', 'entregables',
             'usuarios', 'esquemas', 'redes', 'aplicaciones', 'métricas',
             'funcionalidades', 'experiencias', 'servicios web',
-            'metodologías'
+            'metodologías',
         ),
         (
             'valor agregado', 'verticales', 'proactivas', 'robustas',
@@ -133,7 +133,7 @@ class Provider(CompanyProvider):
             'integrado', 'impacto total', 'inalámbrica', 'transparentes',
             'de siguiente generación', 'lo último', 'centrado al usuario',
             'visionarias', 'personalizado', 'ubicuas', 'plug-and-play',
-            'colaborativas', 'holísticas', 'ricas'
+            'colaborativas', 'holísticas', 'ricas',
         ),
     )
 
@@ -141,7 +141,7 @@ class Provider(CompanyProvider):
                          'Industrias', 'Laboratorios', 'Proyectos')
 
     company_suffixes = ('A.C.', 'S.A.', 'S.A. de C.V.', 'S.C.',
-        'S. R.L. de C.V.','e Hijos', 'y Asociados')
+                        'S. R.L. de C.V.', 'e Hijos', 'y Asociados')
 
     def company_prefix(self):
         """

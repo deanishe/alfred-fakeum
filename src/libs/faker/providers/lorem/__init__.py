@@ -1,10 +1,9 @@
+from .. import BaseProvider
+
 localized = True
 
 # 'Latin' is the default locale
 default_locale = 'la'
-
-
-from .. import BaseProvider
 
 
 class Provider(BaseProvider):
@@ -26,6 +25,23 @@ class Provider(BaseProvider):
     word_connector = ' '
     sentence_punctuation = '.'
 
+    def words(self, nb=3, ext_word_list=None, unique=False):
+        """
+        :returns: An array of random words. for example: ['Lorem', 'ipsum', 'dolor']
+
+        Keyword arguments:
+        :param nb: how many words to return
+        :param ext_word_list: a list of words you would like to have instead of
+            'Lorem ipsum'
+        :param unique: If True, the returned word list will contain unique words
+
+        :rtype: list
+        """
+        word_list = ext_word_list if ext_word_list else self.word_list
+        if unique:
+            return self.random_sample(word_list, length=nb)
+        return self.random_choices(word_list, length=nb)
+
     def word(self, ext_word_list=None):
         """
         :returns: A random word, eg: 'lorem'
@@ -35,22 +51,7 @@ class Provider(BaseProvider):
 
         :rtype: str
         """
-        if ext_word_list:
-            return self.random_element(ext_word_list)
-        return self.random_element(self.word_list)
-
-    def words(self, nb=3, ext_word_list=None):
-        """
-        :returns: An array of random words. for example: ['Lorem', 'ipsum', 'dolor']
-
-        Keyword arguments:
-        :param nb: how many words to return
-        :param ext_word_list: a list of words you would like to have instead of
-            'Lorem ipsum'
-
-        :rtype: list
-        """
-        return [self.word(ext_word_list) for _ in range(0, nb)]
+        return self.words(1, ext_word_list)[0]
 
     def sentence(self, nb_words=6, variable_nb_words=True, ext_word_list=None):
         """
@@ -89,9 +90,14 @@ class Provider(BaseProvider):
 
         :rtype: list
         """
-        return [self.sentence(ext_word_list=ext_word_list) for _ in range(0, nb)]
+        return [self.sentence(ext_word_list=ext_word_list)
+                for _ in range(0, nb)]
 
-    def paragraph(self, nb_sentences=3, variable_nb_sentences=True, ext_word_list=None):
+    def paragraph(
+            self,
+            nb_sentences=3,
+            variable_nb_sentences=True,
+            ext_word_list=None):
         """
         :returns: A single paragraph. For example: 'Sapiente sunt omnis. Ut
             pariatur ad autem ducimus et. Voluptas rem voluptas sint modi dolorem amet.'
@@ -113,7 +119,7 @@ class Provider(BaseProvider):
             nb_sentences = self.randomize_nb_elements(nb_sentences, min=1)
 
         para = self.word_connector.join(self.sentences(
-            nb_sentences, ext_word_list=ext_word_list
+            nb_sentences, ext_word_list=ext_word_list,
         ))
 
         return para
@@ -129,7 +135,8 @@ class Provider(BaseProvider):
         :rtype: list
         """
 
-        return [self.paragraph(ext_word_list=ext_word_list) for _ in range(0, nb)]
+        return [self.paragraph(ext_word_list=ext_word_list)
+                for _ in range(0, nb)]
 
     def text(self, max_nb_chars=200, ext_word_list=None):
         """
@@ -145,15 +152,18 @@ class Provider(BaseProvider):
         """
         text = []
         if max_nb_chars < 5:
-            raise ValueError('text() can only generate text of at least 5 characters')
+            raise ValueError(
+                'text() can only generate text of at least 5 characters')
 
         if max_nb_chars < 25:
             # join words
             while not text:
                 size = 0
-                # determine how many words are needed to reach the $max_nb_chars once;
+                # determine how many words are needed to reach the $max_nb_chars
+                # once;
                 while size < max_nb_chars:
-                    word = (self.word_connector if size else '') + self.word(ext_word_list=ext_word_list)
+                    word = (self.word_connector if size else '') + \
+                        self.word(ext_word_list=ext_word_list)
                     text.append(word)
                     size += len(word)
                 text.pop()
@@ -164,9 +174,11 @@ class Provider(BaseProvider):
             # join sentences
             while not text:
                 size = 0
-                # determine how many sentences are needed to reach the $max_nb_chars once
+                # determine how many sentences are needed to reach the
+                # $max_nb_chars once
                 while size < max_nb_chars:
-                    sentence = (self.word_connector if size else '') + self.sentence(ext_word_list=ext_word_list)
+                    sentence = (self.word_connector if size else '') + \
+                        self.sentence(ext_word_list=ext_word_list)
                     text.append(sentence)
                     size += len(sentence)
                 text.pop()
@@ -174,9 +186,11 @@ class Provider(BaseProvider):
             # join paragraphs
             while not text:
                 size = 0
-                # determine how many paragraphs are needed to reach the $max_nb_chars once
+                # determine how many paragraphs are needed to reach the
+                # $max_nb_chars once
                 while size < max_nb_chars:
-                    paragraph = ('\n' if size else '') + self.paragraph(ext_word_list=ext_word_list)
+                    paragraph = ('\n' if size else '') + \
+                        self.paragraph(ext_word_list=ext_word_list)
                     text.append(paragraph)
                     size += len(paragraph)
                 text.pop()

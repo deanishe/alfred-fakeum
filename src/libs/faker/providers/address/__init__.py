@@ -1,6 +1,5 @@
 # coding=utf-8
 from __future__ import unicode_literals
-from decimal import Decimal
 
 from .. import BaseProvider
 from .. import date_time
@@ -9,8 +8,8 @@ localized = True
 
 
 class Provider(BaseProvider):
-    city_suffixes = ['Ville', ]
-    street_suffixes = ['Street', ]
+    city_suffixes = ['Ville']
+    street_suffixes = ['Street']
     city_formats = ('{{first_name}} {{city_suffix}}', )
     street_name_formats = ('{{last_name}} {{street_suffix}}', )
     street_address_formats = ('{{building_number}} {{street_name}}', )
@@ -18,7 +17,12 @@ class Provider(BaseProvider):
     building_number_formats = ('##', )
     postcode_formats = ('#####', )
     countries = [tz['name'] for tz in date_time.Provider.countries]
-    country_codes = [tz['code'] for tz in date_time.Provider.countries]
+
+    ALPHA_2 = 'alpha-2'
+    ALPHA_3 = 'alpha-3'
+
+    alpha_2_country_codes = [tz['alpha-2-code'] for tz in date_time.Provider.countries]
+    alpha_3_country_codes = [tz['alpha-3-code'] for tz in date_time.Provider.countries]
 
     def city_suffix(self):
         """
@@ -75,24 +79,10 @@ class Provider(BaseProvider):
     def country(self):
         return self.random_element(self.countries)
 
-    def country_code(self):
-        return self.random_element(self.country_codes)
-
-    def geo_coordinate(self, center=None, radius=0.001):
-        """
-        Optionally center the coord and pick a point within radius.
-        """
-        if center is None:
-            return Decimal(str(self.generator.random.randint(-180000000, 180000000) / 1000000.0)).quantize(Decimal('.000001'))
+    def country_code(self, representation=ALPHA_2):
+        if representation == self.ALPHA_2:
+            return self.random_element(self.alpha_2_country_codes)
+        elif representation == self.ALPHA_3:
+            return self.random_element(self.alpha_3_country_codes)
         else:
-            center = float(center)
-            radius = float(radius)
-            geo = self.generator.random.uniform(center - radius, center + radius)
-            return Decimal(str(geo)).quantize(Decimal('.000001'))
-
-    def latitude(self):
-        # Latitude has a range of -90 to 90, so divide by two.
-        return self.geo_coordinate() / 2
-
-    def longitude(self):
-        return self.geo_coordinate()
+            raise ValueError("`representation` must be one of `alpha-2` or `alpha-3`.")

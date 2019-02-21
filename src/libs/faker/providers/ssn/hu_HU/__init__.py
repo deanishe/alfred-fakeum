@@ -4,18 +4,21 @@ from .. import Provider as SsnProvider
 from functools import reduce
 from math import fmod
 
+
 def zfix(d):
     if d < 10:
         return "0" + str(d)
     else:
         return d
 
+
 class Provider(SsnProvider):
     def ssn(self, dob=None, gender=None):
         """
         Generates Hungarian SSN equivalent (személyazonosító szám or, colloquially, személyi szám)
 
-        :param dob: date of birth as a "YYMMDD" string - this determines the checksum regime and is also encoded in the személyazonosító szám.
+        :param dob: date of birth as a "YYMMDD" string - this determines the checksum regime and is also encoded
+            in the személyazonosító szám.
         :type dob: str
         :param gender: gender of the person - "F" for female, M for male.
         :type gender: str
@@ -112,15 +115,27 @@ class Provider(SsnProvider):
 
         H = zfix(H)
         N = zfix(N)
-        S = "{}{}{}".format(self.generator.random_digit(), self.generator.random_digit(), self.generator.random_digit())
+        S = "{}{}{}".format(self.generator.random_digit(
+        ), self.generator.random_digit(), self.generator.random_digit())
 
         vdig = "{M}{E}{H}{N}{S}".format(M=M, E=E, H=H, N=N, S=S)
 
         if 17 < E < 97:
-            cum = [(k+1) * int(v) for k,v in enumerate(vdig)]
+            cum = [(k + 1) * int(v) for k, v in enumerate(vdig)]
         else:
-            cum = [(10-k) * int(v) for k,v in enumerate(vdig)]
+            cum = [(10 - k) * int(v) for k, v in enumerate(vdig)]
 
-        K = fmod(reduce(lambda x,y: x+y, cum), 11)
+        K = fmod(reduce(lambda x, y: x + y, cum), 11)
 
         return vdig + str(int(K))
+
+    vat_id_formats = (
+        'HU########',
+    )
+
+    def vat_id(self):
+        """
+        http://ec.europa.eu/taxation_customs/vies/faq.html#item_11
+        :return: A random Hungarian VAT ID
+        """
+        return self.bothify(self.random_element(self.vat_id_formats))

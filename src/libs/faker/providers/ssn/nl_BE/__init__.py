@@ -8,6 +8,7 @@ For more info on rijksregisternummer, see https://nl.wikipedia.org/wiki/Rijksreg
 Dutch/French only for now ...
 """
 
+
 class Provider(SsnProvider):
 
     def ssn(self):
@@ -41,7 +42,7 @@ class Provider(SsnProvider):
         # Only keep the last 2 digits of the year
         elms[0] = elms[0][2:4]
         # Simulate the gender/sequence - should be 3 digits
-        seq = self.generator.random_int(1,998)
+        seq = self.generator.random_int(1, 998)
         # Right justify sequence and append to list
         seq_str = "{:0>3}".format(seq)
         elms.append(seq_str)
@@ -55,3 +56,14 @@ class Provider(SsnProvider):
         # return result as a string
         elms.append(s_rjust)
         return "".join(elms)
+
+    vat_id_formats = (
+        'BE##########',
+    )
+
+    def vat_id(self):
+        """
+        http://ec.europa.eu/taxation_customs/vies/faq.html#item_11
+        :return: A random Belgian VAT ID
+        """
+        return self.bothify(self.random_element(self.vat_id_formats))

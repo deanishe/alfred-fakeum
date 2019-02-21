@@ -53,7 +53,7 @@ class Provider(SsnProvider):
             year_without_century % 10,
             int(month / 10),
             month % 10,
-            int(day / 10), day % 10
+            int(day / 10), day % 10,
         ]
 
         for _ in range(4):
@@ -62,3 +62,14 @@ class Provider(SsnProvider):
         pesel_digits.append(checksum(pesel_digits))
 
         return ''.join(str(digit) for digit in pesel_digits)
+
+    vat_id_formats = (
+        'PL##########',
+    )
+
+    def vat_id(self):
+        """
+        http://ec.europa.eu/taxation_customs/vies/faq.html#item_11
+        :return: A random Polish VAT ID
+        """
+        return self.bothify(self.random_element(self.vat_id_formats))

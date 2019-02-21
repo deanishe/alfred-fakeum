@@ -4,13 +4,14 @@ from .. import Provider as AddressProvider
 
 
 class Provider(AddressProvider):
-    city_formats = ("{{city_name}}", )
-    building_number_formats = ("%號", "%#號", "%##號", )
-    postcode_formats = ("%####", "%##", )
-    section_formats = ( "", "", "", "", "%段", )
-    street_address_formats = ( "{{street_name}}{{street_name_suffix}}{{section_number}}{{building_number}}", )
-    city_formats = ( "{{city_name}}{{city_name_suffix}}", )
-    address_formats = ("{{postcode}} {{city}}{{street_address}}{{secondary_address}}", )
+    city_formats = ("{{city_name}}", "{{city_name}}{{city_name_suffix}}")
+    building_number_formats = ("%號", "%#號", "%##號")
+    postcode_formats = ("%####", "%##")
+    section_formats = ("", "", "", "", "%段")
+    street_address_formats = (
+        "{{street_name}}{{street_name_suffix}}{{section_number}}{{building_number}}", )
+    address_formats = (
+        "{{postcode}} {{city}}{{street_address}}{{secondary_address}}", )
     secondary_address_formats = ('#樓', '之#')
 
     street_names = ("中正", "中山", "民生", "中華", "和平",
@@ -36,7 +37,7 @@ class Provider(AddressProvider):
                     "關渡", "北投", "石牌", "芝山", "景美",
                     "士林", "劍潭", "雙連", "新北投", "萬隆")
 
-    street_suffixes = ( "路", "街", "巷" )
+    street_suffixes = ("路", "街", "巷")
 
     cities = ("基隆", "台北", "新北", "桃園", "新竹",
               "新竹", "苗栗", "台中", "彰化", "南投",
@@ -52,7 +53,7 @@ class Provider(AddressProvider):
               "北港", "卑南", "草屯", "梅山", "牡丹",
               "橫山", "光復", "關山", "古坑", "竹田")
 
-    city_suffixes = ( "市", "縣" )
+    city_suffixes = ("市", "縣")
 
     # from
     countries = ("阿爾巴尼亞", "剛果共和國", "阿爾及利亞", "丹麥",
@@ -89,7 +90,9 @@ class Provider(AddressProvider):
                  "聖克里斯多福及尼維斯")
 
     def secondary_address(self):
-        return self.numerify(self.random_element(self.secondary_address_formats))
+        return self.numerify(
+            self.random_element(
+                self.secondary_address_formats))
 
     def building_number(self):
         return self.numerify(self.random_element(self.building_number_formats))

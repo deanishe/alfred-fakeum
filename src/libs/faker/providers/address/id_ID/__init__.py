@@ -3,9 +3,10 @@
 from __future__ import unicode_literals
 from .. import Provider as AddressProvider
 
+
 class Provider(AddressProvider):
 
-    building_number_formats = ('###', '##', '#',)
+    building_number_formats = ('###', '##', '#')
 
     city_formats = ('{{city_name}}',)
 
@@ -25,17 +26,18 @@ class Provider(AddressProvider):
         '{{street_address}}\n{{city}}, {{state_abbr}} {{postcode}}',
     )
 
-    # From http://elibrary.dephub.go.id/elibrary/media/catalog/0010-021500000000135/swf/618/Lampiran%20E%20Data%20Bandung.pdf
+    # From
+    # http://elibrary.dephub.go.id/elibrary/media/catalog/0010-021500000000135/swf/618/Lampiran%20E%20Data%20Bandung.pdf
     streets = (
-        'Abdul Muis ', 'Antapani Lama', 'Asia Afrika', 'Astana Anyar', 'BKR',
+        'Abdul Muis', 'Antapani Lama', 'Asia Afrika', 'Astana Anyar', 'BKR',
         'Cihampelas', 'Cikapayang', 'Cikutra Barat', 'Cikutra Timur',
         'Ciumbuleuit', 'Ciwastra', 'Dipatiukur', 'Dipenogoro', 'Dr. Djunjunan',
         'Gardujati', 'Gedebage Selatan', 'Gegerkalong Hilir',
-        'HOS. Cokroaminoto', 'Ir. H. Djuanda', 'Jakarta ', 'Jamika',
+        'HOS. Cokroaminoto', 'Ir. H. Djuanda', 'Jakarta', 'Jamika',
         'Jend. A. Yani', 'Jend. Sudirman', 'K.H. Wahid Hasyim', 'Kebonjati',
         'Kiaracondong', 'Laswi', 'Lembong', 'Merdeka', 'Moch. Ramdan',
         'Moch. Toha', 'Pacuan Kuda', 'Pasir Koja', 'Pasirkoja', 'Pasteur',
-        'Pelajar Pejuang', 'Peta', 'PHH. Mustofa ', 'Rajawali Barat',
+        'Pelajar Pejuang', 'Peta', 'PHH. Mustofa', 'Rajawali Barat',
         'Rajawali Timur', 'Raya Setiabudhi', 'Raya Ujungberung', 'Rumah Sakit',
         'Sadang Serang', 'Sentot Alibasa', 'Setiabudhi', 'Siliwangi',
         'Soekarno Hatta', 'Sukabumi', 'Sukajadi', 'Suniaraja', 'Surapati',
@@ -52,7 +54,8 @@ class Provider(AddressProvider):
         'Jl.', 'Lr.', 'Gg.',
     )
 
-    # From https://id.wikipedia.org/wiki/Daftar_kabupaten_dan_kota_di_Indonesia#Daftar_kota
+    # From
+    # https://id.wikipedia.org/wiki/Daftar_kabupaten_dan_kota_di_Indonesia#Daftar_kota
     cities = (
         'Ambon', 'Balikpapan', 'Banda Aceh', 'Bandar Lampung', 'Bandung',
         'Banjar', 'Banjarbaru', 'Banjarmasin', 'Batam', 'Batu', 'Bau-Bau',
@@ -89,13 +92,13 @@ class Provider(AddressProvider):
         'Sumatera Selatan', 'Sumatera Utara',
     )
 
-    # Currently this is my own work
+    # https://id.wikipedia.org/wiki/Daftar_provinsi_di_Indonesia
     states_abbr = (
-        'Aceh', 'Bali', 'Banten', 'Bengkulu', 'DIY', 'DKI', 'Gorontalo',
-        'Jambi', 'Jabar', 'Jateng', 'Jatim', 'Kalbar', 'Kalsel', 'Kalteng',
-        'Kaltim', 'Kalut', 'Babel', 'Kepri', 'Lampung', 'Maluku', 'Malut',
-        'NTB', 'NTT', 'Papua', 'Papbar', 'Riau', 'Sulbar', 'Sulsel', 'Sulteng',
-        'Sultra', 'Sulut', 'Sumbar', 'Sumsel', 'Sumut',
+        'AC', 'BA', 'BT', 'BE', 'YO', 'JK', 'GO',
+        'JA', 'JB', 'JT', 'JI', 'KB', 'KS', 'KT',
+        'KI', 'KU', 'BB', 'KR', 'LA', 'MA', 'MU',
+        'NB', 'NT', 'PA', 'PB', 'RI', 'SR', 'SN', 'ST',
+        'SG', 'SU', 'SB', 'SS', 'SU',
     )
 
     # From https://id.wikipedia.org/wiki/Daftar_negara-negara_di_dunia

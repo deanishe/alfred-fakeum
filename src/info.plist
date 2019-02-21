@@ -104,7 +104,7 @@
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
-				<false/>
+				<true/>
 			</dict>
 			<dict>
 				<key>destinationuid</key>
@@ -124,7 +124,7 @@
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
-				<false/>
+				<true/>
 			</dict>
 		</array>
 		<key>5BB103F1-C20A-4AEC-AB23-051F4AA6816E</key>
@@ -176,7 +176,7 @@
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
-				<false/>
+				<true/>
 			</dict>
 		</array>
 		<key>80140127-E88D-4ED2-B69F-2A6EA08F3407</key>
@@ -228,6 +228,19 @@
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
+				<true/>
+			</dict>
+		</array>
+		<key>BBB81D4A-9ED4-4C71-8CD3-248ED0F2CB3A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>305FB681-8DA9-4F6C-9C38-1B3880FDD6BF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
 				<false/>
 			</dict>
 		</array>
@@ -249,6 +262,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>4665F575-371B-44C6-BDA4-732AF54E382A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E31FF35D-3BFF-4A13-B804-7550FBD280C9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>305FB681-8DA9-4F6C-9C38-1B3880FDD6BF</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -350,6 +376,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>focusedappvariable</key>
+				<true/>
+				<key>focusedappvariablename</key>
+				<string>SNIPPET_MODE</string>
+				<key>keyword</key>
+				<string>xxfake</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.snippet</string>
+			<key>uid</key>
+			<string>E31FF35D-3BFF-4A13-B804-7550FBD280C9</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argument</key>
 				<string>.
 /---- FAKE OUT ----\
@@ -384,6 +427,19 @@ vars={allvars}
 			<string>alfred.workflow.utility.filter</string>
 			<key>uid</key>
 			<string>A02656B0-0D8B-4C2B-8C8C-325486F55C83</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>triggerid</key>
+				<string>fake</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>BBB81D4A-9ED4-4C71-8CD3-248ED0F2CB3A</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -783,7 +839,7 @@ vars={allvars}
 			<key>colorindex</key>
 			<integer>9</integer>
 			<key>xpos</key>
-			<integer>550</integer>
+			<integer>730</integer>
 			<key>ypos</key>
 			<integer>40</integer>
 		</dict>
@@ -825,7 +881,7 @@ vars={allvars}
 			<key>note</key>
 			<string>Generate fake data</string>
 			<key>xpos</key>
-			<integer>40</integer>
+			<integer>220</integer>
 			<key>ypos</key>
 			<integer>40</integer>
 		</dict>
@@ -843,7 +899,7 @@ vars={allvars}
 			<key>colorindex</key>
 			<integer>12</integer>
 			<key>xpos</key>
-			<integer>840</integer>
+			<integer>1020</integer>
 			<key>ypos</key>
 			<integer>330</integer>
 		</dict>
@@ -852,7 +908,7 @@ vars={allvars}
 			<key>colorindex</key>
 			<integer>9</integer>
 			<key>xpos</key>
-			<integer>550</integer>
+			<integer>730</integer>
 			<key>ypos</key>
 			<integer>180</integer>
 		</dict>
@@ -861,7 +917,7 @@ vars={allvars}
 			<key>colorindex</key>
 			<integer>9</integer>
 			<key>xpos</key>
-			<integer>260</integer>
+			<integer>440</integer>
 			<key>ypos</key>
 			<integer>70</integer>
 		</dict>
@@ -947,7 +1003,7 @@ vars={allvars}
 			<key>note</key>
 			<string>paste != 1</string>
 			<key>xpos</key>
-			<integer>430</integer>
+			<integer>610</integer>
 			<key>ypos</key>
 			<integer>70</integer>
 		</dict>
@@ -959,6 +1015,15 @@ vars={allvars}
 			<integer>40</integer>
 			<key>ypos</key>
 			<integer>620</integer>
+		</dict>
+		<key>BBB81D4A-9ED4-4C71-8CD3-248ED0F2CB3A</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>9</integer>
+			<key>xpos</key>
+			<integer>40</integer>
+			<key>ypos</key>
+			<integer>180</integer>
 		</dict>
 		<key>BF97123F-C623-457B-B1E9-F417109255A7</key>
 		<dict>
@@ -978,9 +1043,18 @@ vars={allvars}
 			<key>note</key>
 			<string>paste == 1</string>
 			<key>xpos</key>
-			<integer>430</integer>
+			<integer>610</integer>
 			<key>ypos</key>
 			<integer>210</integer>
+		</dict>
+		<key>E31FF35D-3BFF-4A13-B804-7550FBD280C9</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>9</integer>
+			<key>xpos</key>
+			<integer>40</integer>
+			<key>ypos</key>
+			<integer>40</integer>
 		</dict>
 		<key>E4106CE4-7B7A-41AC-896D-40160A37952C</key>
 		<dict>
@@ -1008,12 +1082,16 @@ vars={allvars}
 		<key>LIPSUM_SENTENCES</key>
 		<string>3</string>
 		<key>SHOW_NOTIFICATIONS</key>
-		<string>0</string>
+		<string>1</string>
 		<key>keyword</key>
 		<string>fake</string>
 	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>SHOW_NOTIFICATIONS</string>
+	</array>
 	<key>version</key>
-	<string>2.0.1</string>
+	<string>2.2.0</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>

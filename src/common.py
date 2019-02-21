@@ -15,9 +15,9 @@ from __future__ import print_function, absolute_import
 from collections import OrderedDict
 import logging
 import os
-import subprocess
 
 from workflow import Variables
+from workflow.util import run_applescript
 
 
 log = logging.getLogger('workflow')
@@ -105,7 +105,7 @@ ALL_LOCALES = OrderedDict((
     ('th_TH', 'Thai'),
     ('tr_TR', 'Turkish'),
     ('uk_UA', 'Ukranian'),
- ))
+))
 
 
 # Workflow's bundle IDs
@@ -114,17 +114,8 @@ BUNDLE_ID = os.getenv('alfred_workflow_bundleid')
 # Script Filter keyword
 KEYWORD = os.getenv('keyword')
 
-# AppleScript to call an External Trigger
-TRIGGER_AS = (u'tell application "Alfred 3" to run trigger "{trigger}" '
-              u'in workflow "{bundleid}"')
-
 # AppleScript to run an Alfred search
 SEARCH_AS = u'tell application "Alfred 3" to search "{query}"'
-
-
-def escape_as(s):
-    """Escape string for inserting into AppleScript."""
-    return s.replace('"', '" & quote & "')
 
 
 def boolvar(name, default=False):
@@ -156,42 +147,18 @@ def intvar(name, default=0):
     return default
 
 
-def savevar(name, value):
-    """Save a workflow variable by adding it to ``info.plist``."""
-    from plistlib import readPlist, writePlist
-    if not isinstance(value, basestring):
-        value = str(value)
-
-    data = readPlist('info.plist')
-    data['variables'][name] = value
-    writePlist(data, 'info.plist')
-    log.debug(u'set workflow variable "%s" to "%s"', name, value)
-
-
-def run_trigger(name, arg=None):
-    """Run an external trigger."""
-    script = TRIGGER_AS.format(trigger=name, bundleid=BUNDLE_ID)
-    if arg:
-        script += u' with argument "{}"'.format(escape_as(arg))
-
-    msg = u'calling external trigger "{}"'.format(name)
-    if arg:
-        msg += u' with arg "{}"'.format(arg)
-    log.debug(msg + ' ...')
-    subprocess.call(['osascript', '-e', script.encode('utf-8')])
-
-
 def run_workflow(query=None):
     """Run workflow with query."""
     query = KEYWORD + u' ' + (query or '')
     script = SEARCH_AS.format(query=query)
     log.debug(u'calling Alfred with query "%s" ...', query)
-    subprocess.call(['osascript', '-e', script.encode('utf-8')])
+    run_applescript(script)
 
 
 def notify(title, text=''):
     """Show a notification."""
     if not boolvar('SHOW_NOTIFICATIONS'):
         return
+
     v = Variables(title=title, text=text)
     print(v)

@@ -14,10 +14,12 @@ from __future__ import print_function, absolute_import
 
 from collections import OrderedDict
 import datetime
+import os
 import random
 import sys
 
 from workflow import Workflow3, ICON_WARNING, MATCH_ALL, MATCH_ALLCHARS
+from workflow.util import run_trigger, set_config
 
 from common import (
     DEFAULT_SETTINGS,
@@ -32,6 +34,7 @@ DELIMITER = u'✕'
 
 # Number of sentences per paragraph of Lipsum text
 LIPSUMS = intvar('LIPSUM_SENTENCES', 3)
+SNIPPET_MODE = os.getenv('SNIPPET_MODE') is not None
 
 # ALFRED_AS = 'tell application "Alfred 2" to search "fake "'
 
@@ -45,11 +48,15 @@ FAKERS = OrderedDict([
     ('Email (free)', 'free_email'),
     ('Email (safe)', 'safe_email'),
     ('Email domain (free)', 'free_email_domain'),
+    ('Social Security No.', 'ssn'),
+    ('Phone No.', 'phone_number'),
+    ('MSISDN', 'msisdn'),
     # Addresses
     ('Address', 'address'),
     ('Street', 'street_address'),
     ('Street Name', 'street_name'),
     ('City', 'city'),
+    ('Postcode', 'postcode'),
     ('State', 'state'),
     ('State abbr.', 'state_abbr'),
     ('Country', 'country'),
@@ -62,6 +69,7 @@ FAKERS = OrderedDict([
     ('URI', 'uri'),
     ('URI path', 'uri_path'),
     ('URL', 'url'),
+    ('User-Agent', 'user_agent'),
     # Corporate bullshit
     ('Corporate BS', 'bs'),
     ('Corporate catchphrase', 'catch_phrase'),
@@ -69,53 +77,93 @@ FAKERS = OrderedDict([
     ('Company suffix', 'company_suffix'),
     # Lorem
     ('Paragraph', 'paragraph'),
-    # 'Paragraphs', 'paragraphs',
     ('Sentence', 'sentence'),
-    # 'Sentences', 'sentences',
-    # 'Text', 'text',
     ('Word', 'word'),
-    # 'Words', 'words',
     # Dates and times
     ('Date', 'date'),
     ('Datetime', 'date_time'),
     ('ISO 8601 Datetime', 'iso8601'),
     ('Time', 'time'),
     ('Timezone', 'timezone'),
-    ('UNIX timestamp', 'unix_time'),
+    ('UNIX Timestamp', 'unix_time'),
+    # Banking
+    ('Credit Card Provider', 'credit_card_provider'),
+    ('Credit Card No.', 'credit_card_number'),
+    ('Credit Card Expiry Date', 'credit_card_expire'),
+    ('Credit Card Full', 'credit_card_full'),
+    ('Credit Card Security No.', 'credit_card_security_code'),
+    ('IBAN', 'iban'),
+    ('BBAN', 'bban'),
+    ('Bank Country Code', 'bank_country'),
+    ('Currency', 'currency_name'),
+    ('Currency Code', 'currency_code'),
+    ('Cryptocurrency', 'cryptocurrency_name'),
+    ('Cryptocurrency Code', 'cryptocurrency_code'),
+    # Barcodes
+    ('EAN', 'ean'),
+    ('EAN 8', 'ean8'),
+    ('EAN 13', 'ean13'),
+    ('ISBN 10', 'isbn10'),
+    ('ISBN 13', 'isbn13'),
+    # Colours
+    ('Colour Name', 'color_name'),
+    ('Colour Name (Safe)', 'safe_color_name'),
+    ('Hex Colour', 'hex_color'),
+    ('Hex Colour (Safe)', 'safe_hex_color'),
+    ('RGB Colour', 'rgb_color'),
+    ('RGB CSS Colour', 'rgb_css_color'),
+    # Miscellaneous
+    ('Profession', 'job'),
+    ('Licence Plate', 'license_plate'),
+    ('MD5 Hash', 'md5'),
+    ('SHA1 Hash', 'sha1'),
+    ('SHA256 Hash', 'sha256'),
+    ('Locale', 'locale'),
+    ('Language Code', 'language_code'),
+    ('UUID4', 'uuid4'),
+    ('Password (not secure!!)', 'password'),
 ])
 
 log = None
 fakers = []
 
 
-def get_faker():
-    """Return random faker instance."""
+def all_fakers():
+    """Return all fakers."""
     from faker import Factory
     global fakers
     if not fakers:
         for loc in wf.settings.get('locales', DEFAULT_SETTINGS['locales']):
             fakers.append(Factory.create(loc))
 
-    return random.choice(fakers)
+    return fakers
 
 
-# def run_workflow():
-#     """Run workflow in Alfred"""
-#     subprocess.call(['osascript', '-e', ALFRED_AS])
+def get_faker(name=None):
+    """Return random faker instance."""
+    fakers = all_fakers()
+
+    if name is None:
+        return random.choice(fakers)
+
+    random.shuffle(fakers)
+    methname = FAKERS[name]
+    for faker in fakers:
+        if hasattr(faker, methname):
+            return faker
 
 
 def get_fake_datum(name):
     """Return one fake datum for name."""
+    faker = get_faker(name)
+    if not faker:
+        return None
+
     methname = FAKERS[name]
-    # Get a faker instance that has the required method
-    while True:
-        faker = get_faker()
-        if hasattr(faker, methname):
-            if name == 'Paragraph':  # Pass no. of sentences to generator
-                datum = getattr(faker, methname)(LIPSUMS, False)
-            else:
-                datum = getattr(faker, methname)()
-            break
+    if name == 'Paragraph':  # Pass no. of sentences to generator
+        datum = getattr(faker, methname)(LIPSUMS, False)
+    else:
+        datum = getattr(faker, methname)()
 
     if isinstance(datum, int):
         datum = str(datum)
@@ -129,12 +177,25 @@ def get_fake_datum(name):
     return datum
 
 
+def supported_type(name):
+    """Return ``True`` if at least one Faker supports this type."""
+    methname = FAKERS[name]
+    for faker in all_fakers():
+        if hasattr(faker, methname):
+            return True
+
+    log.debug('data type "%s" is not supported by active locales', name)
+    return False
+
+
 def get_fake_data(names=None, count=1):
     """Return list of fake data."""
     fake_data = []
 
     if not names:
         names = sorted(FAKERS.keys())
+
+    names = [n for n in names if supported_type(n)]
 
     for name in names:
 
@@ -171,8 +232,8 @@ def main(wf):
 
     if DELIMITER in query:
         if query.endswith(DELIMITER):
-            # Run workflow with previous query
-            # run_workflow(wf.cached_data('last_query', session=True))
+            # Back up to empty query
+            # run_trigger('fake')
             run_workflow()
             return
 
@@ -230,9 +291,12 @@ def main(wf):
         it.setvar('title', 'Copied to Clipboard')
         it.setvar('text', data)
 
-        mod = it.add_modifier('cmd', 'Paste to frontmost application')
-        mod.setvar('paste', 1)
-        mod.setvar('SHOW_NOTIFICATIONS', 0)
+        if SNIPPET_MODE:
+            it.setvar('paste', 1)
+        else:
+            mod = it.add_modifier('cmd', 'Paste to frontmost application')
+            mod.setvar('paste', 1)
+            mod.setvar('SHOW_NOTIFICATIONS', 0)
 
     wf.send_feedback()
 

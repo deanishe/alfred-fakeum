@@ -19,11 +19,13 @@ class Provider(PersonProvider):
         '{{prefix_male}} {{first_name_male}} {{last_name_male}}',
         '{{prefix_female}} {{first_name_female}} {{last_name_female}}',
         '{{prefix_male}} {{first_name_male}} {{last_name_male}}',
-        '{{prefix_female}} {{first_name_female}} {{last_name_female}}'
+        '{{prefix_female}} {{first_name_female}} {{last_name_female}}',
     )
 
-    # names from https://en.wikipedia.org/wiki/Ghanaian_name, https://buzzghana.com/ghanaian-names/, https://en.wikipedia.org/wiki/Akan_names, 
-    
+    # names from https://en.wikipedia.org/wiki/Ghanaian_name,
+    # https://buzzghana.com/ghanaian-names/,
+    # https://en.wikipedia.org/wiki/Akan_names,
+
     first_names_male = (
         'Aaron',
         'Abeiku',
@@ -150,7 +152,7 @@ class Provider(PersonProvider):
         'Victor',
         'Vincent',
         'William',
-        'Yaw'
+        'Yaw',
     )
 
     first_names_female = (
@@ -291,7 +293,7 @@ class Provider(PersonProvider):
         'Vida',
         'Wendy',
         'Yaa',
-        'Yvonne'
+        'Yvonne',
     )
 
     first_names = first_names_male + first_names_female
@@ -411,7 +413,7 @@ class Provider(PersonProvider):
         'Yawson',
         'Yeboa',
         'Yeboah',
-        'Yirenkyi'
+        'Yirenkyi',
     )
 
     last_names_female = (
@@ -582,13 +584,13 @@ class Provider(PersonProvider):
         'Yawson',
         'Yeboa',
         'Yeboah',
-        'Yirenkyi'
+        'Yirenkyi',
     )
 
     last_names = last_names_male + last_names_female
 
     prefixes_female = ('Mrs.', 'Ms.', 'Miss', 'Dr.',
-                       'Mama', 'Maame', 'Awura', 'Sista'
+                       'Mama', 'Maame', 'Awura', 'Sista',
                        'Osofo Maame')
 
     prefixes_male = ('Mr.', 'Dr.', 'Agya', 'Owura', 'Osofo')

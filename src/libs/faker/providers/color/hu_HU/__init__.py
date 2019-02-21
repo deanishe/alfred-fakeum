@@ -1,5 +1,4 @@
 # coding=utf-8
-from collections import OrderedDict
 
 from faker.providers import BaseProvider
 
@@ -11,4 +10,3 @@ class Provider(BaseProvider):
         'bíbor', 'kékeszöld', 'citromzöld', 'kék', 'ezüst',
         'szürke', 'sárga', 'mályva', 'akvamarin', 'fehér',
     )
-

@@ -12,9 +12,8 @@ class Provider(PersonProvider):
         '{{first_name}} {{last_name}}',
         '{{prefix}} {{first_name}} {{last_name}}',
         '{{first_name}} {{last_name}}',
-        '{{prefix}} {{first_name}} {{last_name}}'
+        '{{prefix}} {{first_name}} {{last_name}}',
     )
-
     first_names = (
         'Alexander', 'Alina', 'Andreas', 'Anna', 'Anton',
         'Benjamin', 'Bernhard',
@@ -24,9 +23,9 @@ class Provider(PersonProvider):
         'Fabian', 'Felix', 'Florian', 'Franz', 'Fransizka',
         'Gabriel', 'Gernot',
         'Hanna',
-        'Ingrid', 'Isabel'
+        'Ingrid', 'Isabel',
         'Jakob', 'Jana', 'Jasmin', 'Johanna', 'Johannes', 'Jonas', 'Julia', 'Julian',
-        'Katharinna', 'Konrad', 'Konstantin'
+        'Katharinna', 'Konrad', 'Konstantin',
         'Lara', 'Laura', 'Lena', 'Leo', 'Leon', 'Linda', 'Luca', 'Lukas',
         'Marcel', 'Maria', 'Martin', 'Matthias', 'Max', 'Maximilian', 'Mia', 'Michael', 'Moritz',
         'Nico', 'Niklas', 'Nina', 'Noah',
@@ -34,10 +33,10 @@ class Provider(PersonProvider):
         'Paul', 'Paula', 'Philipp', 'Pia',
         'Raphael', 'Robert',
         'Samuel', 'Sarah', 'Sebastian', 'Simon', 'Sophie',
-        'Theresa', 'Thomas', 'Tim', 'Tobias',
-        'Valentin'
+        'Theresa', 'Thomas', 'Tim',
+        'Tobias',
+        'Valentin',
     )
-
     last_names = (
         'Auer', 'Aigner',
         'Bauer', 'Baumgartner', 'Berger', 'Binder', 'Brunner',

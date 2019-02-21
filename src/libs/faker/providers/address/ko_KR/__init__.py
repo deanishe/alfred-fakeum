@@ -207,8 +207,8 @@ class Provider(AddressProvider):
                  '키르기스스탄', '키리바시', '키프로스', '타이', '타지키스탄', '탄자니아', '터키',
                  '토고', '통가', '투르크메니스탄', '투발루', '튀니지', '트리니다드 토바고', '파나마',
                  '파라과이', '파키스탄', '파푸아 뉴기니', '팔라우', '페루', '포르투갈', '폴란드', '프랑스',
-                 '피지', '핀란드', '필리핀', '헝가리'
-    )
+                 '피지', '핀란드', '필리핀', '헝가리',
+                 )
     building_dongs = (
         '가',
         '나',
@@ -381,8 +381,14 @@ class Provider(AddressProvider):
         """
         return self.bothify(self.random_element(self.postcode_formats))
 
-    def postal_code(self):
+    def postcode(self):
         """
         :example 12345
         """
         return self.bothify(self.random_element(self.new_postal_code_formats))
+
+    def postal_code(self):
+        """
+        :example 12345
+        """
+        return self.postcode()

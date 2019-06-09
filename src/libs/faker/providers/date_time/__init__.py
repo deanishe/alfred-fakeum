@@ -11,8 +11,8 @@ from time import time
 from dateutil import relativedelta
 from dateutil.tz import tzlocal, tzutc
 
-from faker.utils.datetime_safe import date, datetime, real_date, real_datetime
 from faker.utils import is_string
+from faker.utils.datetime_safe import date, datetime, real_date, real_datetime
 
 from .. import BaseProvider
 
@@ -40,7 +40,7 @@ class ParseError(ValueError):
 
 
 timedelta_pattern = r''
-for name, sym in [('years', 'y'), ('weeks', 'w'), ('days', 'd'),
+for name, sym in [('years', 'y'), ('months', 'M'), ('weeks', 'w'), ('days', 'd'),
                   ('hours', 'h'), ('minutes', 'm'), ('seconds', 's')]:
     timedelta_pattern += r'((?P<{0}>(?:\+|-)\d+?){1})?'.format(name, sym)
 
@@ -1379,8 +1379,11 @@ class Provider(BaseProvider):
         """
         Get a timedelta object
         """
+        start_datetime = self._parse_start_datetime('now')
         end_datetime = self._parse_end_datetime(end_datetime)
-        ts = self.generator.random.randint(0, end_datetime)
+        seconds = end_datetime - start_datetime
+
+        ts = self.generator.random.randint(*sorted([0, seconds]))
         return timedelta(seconds=ts)
 
     def date_time(self, tzinfo=None, end_datetime=None):
@@ -1490,6 +1493,10 @@ class Provider(BaseProvider):
             if 'days' not in time_params:
                 time_params['days'] = 0
             time_params['days'] += 365.24 * time_params.pop('years')
+        if 'months' in time_params:
+            if 'days' not in time_params:
+                time_params['days'] = 0
+            time_params['days'] += 30.42 * time_params.pop('months')
 
         if not time_params:
             raise ParseError("Can't parse date string `{}`.".format(value))
@@ -1507,20 +1514,20 @@ class Provider(BaseProvider):
         raise ParseError("Invalid format for timedelta '{0}'".format(value))
 
     @classmethod
-    def _parse_date_time(cls, text, tzinfo=None):
-        if isinstance(text, (datetime, date, real_datetime, real_date)):
-            return datetime_to_timestamp(text)
+    def _parse_date_time(cls, value, tzinfo=None):
+        if isinstance(value, (datetime, date, real_datetime, real_date)):
+            return datetime_to_timestamp(value)
         now = datetime.now(tzinfo)
-        if isinstance(text, timedelta):
-            return datetime_to_timestamp(now - text)
-        if is_string(text):
-            if text == 'now':
+        if isinstance(value, timedelta):
+            return datetime_to_timestamp(now + value)
+        if is_string(value):
+            if value == 'now':
                 return datetime_to_timestamp(datetime.now(tzinfo))
-            time_params = cls._parse_date_string(text)
+            time_params = cls._parse_date_string(value)
             return datetime_to_timestamp(now + timedelta(**time_params))
-        if isinstance(text, int):
-            return datetime_to_timestamp(now + timedelta(text))
-        raise ParseError("Invalid format for date '{0}'".format(text))
+        if isinstance(value, int):
+            return datetime_to_timestamp(now + timedelta(value))
+        raise ParseError("Invalid format for date '{0}'".format(value))
 
     @classmethod
     def _parse_date(cls, value):
@@ -1530,7 +1537,7 @@ class Provider(BaseProvider):
             return value
         today = date.today()
         if isinstance(value, timedelta):
-            return today - value
+            return today + value
         if is_string(value):
             if value in ('today', 'now'):
                 return today
@@ -1661,11 +1668,17 @@ class Provider(BaseProvider):
             datetime_to_timestamp(datetime_start),
             datetime_to_timestamp(datetime_end),
         )
-        if tzinfo is None:
-            pick = datetime.fromtimestamp(timestamp, tzlocal())
-            pick = pick.astimezone(tzutc()).replace(tzinfo=None)
-        else:
-            pick = datetime.fromtimestamp(timestamp, tzinfo)
+        try:
+            if tzinfo is None:
+                pick = datetime.fromtimestamp(timestamp, tzlocal())
+                pick = pick.astimezone(tzutc()).replace(tzinfo=None)
+            else:
+                pick = datetime.fromtimestamp(timestamp, tzinfo)
+        except OverflowError:
+            raise OverflowError(
+                "You specified an end date with a timestamp bigger than the maximum allowed on this"
+                " system. Please specify an earlier date.",
+            )
         return pick
 
     def date_between_dates(self, date_start=None, date_end=None):

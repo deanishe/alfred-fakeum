@@ -113,9 +113,6 @@ BUNDLE_ID = os.getenv('alfred_workflow_bundleid')
 # Script Filter keyword
 KEYWORD = os.getenv('keyword')
 
-# AppleScript to run an Alfred search
-SEARCH_AS = u'tell application "Alfred 3" to search "{query}"'
-
 
 def boolvar(name, default=False):
     """Return `True` or `False` for a workflow variable."""

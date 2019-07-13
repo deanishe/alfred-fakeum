@@ -831,7 +831,7 @@ vars={allvars}
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Generate test data</string>
 	<key>uidata</key>
 	<dict>
 		<key>03F09777-FA2A-45F3-A8A8-49AA079FFC61</key>
@@ -1091,7 +1091,7 @@ vars={allvars}
 		<string>SHOW_NOTIFICATIONS</string>
 	</array>
 	<key>version</key>
-	<string>2.2.1</string>
+	<string>2.2.2</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>

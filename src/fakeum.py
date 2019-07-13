@@ -8,7 +8,7 @@
 # Created on 2014-12-29
 #
 
-"""Alfred 3 workflow to generate test data."""
+"""Alfred workflow to generate test data."""
 
 from __future__ import print_function, absolute_import
 
@@ -19,14 +19,13 @@ import random
 import sys
 
 from workflow import Workflow3, ICON_WARNING, MATCH_ALL, MATCH_ALLCHARS
-from workflow.util import run_trigger, set_config
+from workflow.util import run_trigger
 
 from common import (
     DEFAULT_SETTINGS,
     ISSUE_URL,
     UPDATE_SETTINGS,
     intvar,
-    run_workflow,
 )
 
 # Query delimiter that separates faker name from quantity
@@ -200,7 +199,7 @@ def get_fake_data(names=None, count=1):
     for name in names:
 
         data = []
-        for i in range(count):
+        for _ in range(count):
             data.append(get_fake_datum(name))
 
         if name in ('Paragraph', 'Address'):
@@ -233,8 +232,7 @@ def main(wf):
     if DELIMITER in query:
         if query.endswith(DELIMITER):
             # Back up to empty query
-            # run_trigger('fake')
-            run_workflow()
+            run_trigger('fake')
             return
 
         query, count = [s.strip() for s in query.split(DELIMITER)]

@@ -17,7 +17,6 @@ import logging
 import os
 
 from workflow import Variables
-from workflow.util import run_applescript
 
 
 log = logging.getLogger('workflow')
@@ -145,14 +144,6 @@ def intvar(name, default=0):
     log.debug('no value set for workflow variable "%s", '
               'using default: %r', name, default)
     return default
-
-
-def run_workflow(query=None):
-    """Run workflow with query."""
-    query = KEYWORD + u' ' + (query or '')
-    script = SEARCH_AS.format(query=query)
-    log.debug(u'calling Alfred with query "%s" ...', query)
-    run_applescript(script)
 
 
 def notify(title, text=''):

@@ -1,7 +1,7 @@
 Alfred Fakeum
 =============
 
-Generate fake test data in Alfred for testing.
+Generate fake test data in Alfred for testing. Based on [Faker][faker].
 
 ![][demo]
 
@@ -200,7 +200,7 @@ Alfred Fakum uses the following libraries:
 [font-awesome]: http://fortawesome.github.io/Font-Awesome/
 [material-icons]: http://zavoloklom.github.io/material-design-iconic-font/
 [docopt]: http://docopt.org/
-[faker]: http://www.joke2k.net/faker/
+[faker]: https://github.com/joke2k/faker
 [faker-licence]: https://github.com/joke2k/faker/blob/master/LICENSE.txt
 [sil]: http://scripts.sil.org/OFL
 [demo]: https://raw.githubusercontent.com/deanishe/alfred-fakeum/master/demo.gif
